@@ -89,13 +89,11 @@
 
 }
 
-// Not sure how to do this part since BLCDatasource media is read only
+// This function doesn't work. Is this because I can't edit the data source?
 //- (void) tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
 //    
 //    if (editingStyle == UITableViewCellEditingStyleDelete) {
-//        [[BLCDataSource sharedInstance].mediaItems removeObjectAtIndex:indexPath.row];
-//        [tableView reloadData];
-//        
+//        [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationNone];
 //        NSLog(@"user swipe to delete");
 //    }
 //
