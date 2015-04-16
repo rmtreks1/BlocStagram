@@ -24,6 +24,10 @@
 		01E8384C1ADF533A001A14E5 /* 9.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 01E838421ADF533A001A14E5 /* 9.JPG */; };
 		01E8384D1ADF533A001A14E5 /* 10.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 01E838431ADF533A001A14E5 /* 10.JPG */; };
 		01E838501ADF5395001A14E5 /* BLCImagesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01E8384F1ADF5395001A14E5 /* BLCImagesTableViewController.m */; };
+		01E838531ADF7324001A14E5 /* BLCUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 01E838521ADF7324001A14E5 /* BLCUser.m */; };
+		01E838561ADF73F1001A14E5 /* BLCMedia.m in Sources */ = {isa = PBXBuildFile; fileRef = 01E838551ADF73F1001A14E5 /* BLCMedia.m */; };
+		01E838591ADF74B8001A14E5 /* BLCComment.m in Sources */ = {isa = PBXBuildFile; fileRef = 01E838581ADF74B8001A14E5 /* BLCComment.m */; };
+		01E8385C1ADF7576001A14E5 /* BLCDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 01E8385B1ADF7576001A14E5 /* BLCDataSource.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +65,14 @@
 		01E838431ADF533A001A14E5 /* 10.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 10.JPG; sourceTree = "<group>"; };
 		01E8384E1ADF5395001A14E5 /* BLCImagesTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLCImagesTableViewController.h; sourceTree = "<group>"; };
 		01E8384F1ADF5395001A14E5 /* BLCImagesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLCImagesTableViewController.m; sourceTree = "<group>"; };
+		01E838511ADF7324001A14E5 /* BLCUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLCUser.h; sourceTree = "<group>"; };
+		01E838521ADF7324001A14E5 /* BLCUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLCUser.m; sourceTree = "<group>"; };
+		01E838541ADF73F1001A14E5 /* BLCMedia.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLCMedia.h; sourceTree = "<group>"; };
+		01E838551ADF73F1001A14E5 /* BLCMedia.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLCMedia.m; sourceTree = "<group>"; };
+		01E838571ADF74B8001A14E5 /* BLCComment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLCComment.h; sourceTree = "<group>"; };
+		01E838581ADF74B8001A14E5 /* BLCComment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLCComment.m; sourceTree = "<group>"; };
+		01E8385A1ADF7576001A14E5 /* BLCDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLCDataSource.h; sourceTree = "<group>"; };
+		01E8385B1ADF7576001A14E5 /* BLCDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLCDataSource.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +117,14 @@
 				01E838381ADF511B001A14E5 /* Images */,
 				01E838161ADF502C001A14E5 /* AppDelegate.h */,
 				01E838171ADF502C001A14E5 /* AppDelegate.m */,
+				01E8385A1ADF7576001A14E5 /* BLCDataSource.h */,
+				01E8385B1ADF7576001A14E5 /* BLCDataSource.m */,
+				01E838511ADF7324001A14E5 /* BLCUser.h */,
+				01E838521ADF7324001A14E5 /* BLCUser.m */,
+				01E838541ADF73F1001A14E5 /* BLCMedia.h */,
+				01E838551ADF73F1001A14E5 /* BLCMedia.m */,
+				01E838571ADF74B8001A14E5 /* BLCComment.h */,
+				01E838581ADF74B8001A14E5 /* BLCComment.m */,
 				01E8384E1ADF5395001A14E5 /* BLCImagesTableViewController.h */,
 				01E8384F1ADF5395001A14E5 /* BLCImagesTableViewController.m */,
 				01E838191ADF502C001A14E5 /* ViewController.h */,
@@ -270,8 +290,12 @@
 			files = (
 				01E8381B1ADF502C001A14E5 /* ViewController.m in Sources */,
 				01E838181ADF502C001A14E5 /* AppDelegate.m in Sources */,
+				01E838561ADF73F1001A14E5 /* BLCMedia.m in Sources */,
 				01E838151ADF502C001A14E5 /* main.m in Sources */,
 				01E838501ADF5395001A14E5 /* BLCImagesTableViewController.m in Sources */,
+				01E838531ADF7324001A14E5 /* BLCUser.m in Sources */,
+				01E8385C1ADF7576001A14E5 /* BLCDataSource.m in Sources */,
+				01E838591ADF74B8001A14E5 /* BLCComment.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
