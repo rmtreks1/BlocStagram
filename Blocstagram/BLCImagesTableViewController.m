@@ -7,6 +7,10 @@
 //
 
 #import "BLCImagesTableViewController.h"
+#import "BLCDataSource.h"
+#import "BLCMedia.h"
+#import "BLCUser.h"
+#import "BLCComment.h"
 
 @interface BLCImagesTableViewController ()
 
@@ -20,7 +24,6 @@
     self = [super initWithStyle:style];
     if (self) {
         // Custom initialization
-        self.images = [NSMutableArray array]; // Why didn't we have to do alloc/init ?
         
     }
     return self;
@@ -28,13 +31,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    for (int i = 1; i <= 10; i++) {
-        NSString *imageName = [NSString stringWithFormat:@"%d.jpg", i];
-        UIImage *image = [UIImage imageNamed:imageName];
-        if (image) {
-            [self.images addObject:image];
-        }
-    }
     
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"imageCell"];
 }
@@ -49,7 +45,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     // Return the number of rows in the section.
-    return self.images.count;
+    return [self items].count;
 }
 
 
@@ -75,22 +71,38 @@
          [cell.contentView addSubview:imageView];
      }
      
-     UIImage *image = self.images[indexPath.row];
-     imageView.image = image;
+     BLCMedia *item = [self items][indexPath.row];
+     imageView.image = item.image;
      
      return cell;
  }
 
 
 - (CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UIImage *image = self.images[indexPath.row];
+    
+    BLCMedia *item = [self items][indexPath.row];
+    UIImage *image = item.image;
+    
+//    NSLog(@"%lu", [self items].count); // checking that the function works
+    
     return (CGRectGetWidth(self.view.frame) / image.size.width) * image.size.height;
 
 }
 
+// This function doesn't work. Is this because I can't edit the data source?
+//- (void) tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+//    
+//    if (editingStyle == UITableViewCellEditingStyleDelete) {
+//        [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationNone];
+//        NSLog(@"user swipe to delete");
+//    }
+//
+//}
 
 
-
+- (NSArray *) items {
+    return [BLCDataSource sharedInstance].mediaItems;
+}
 
 
 

@@ -1,19 +1,14 @@
 //
-//  BLCImagesTableViewController.h
+//  BLCMedia.m
 //  Blocstagram
 //
 //  Created by Roshan Mahanama on 16/04/2015.
 //  Copyright (c) 2015 RMTREKS. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "BLCMedia.h"
+#import "BLCUser.h"
 
-
-
-@interface BLCImagesTableViewController : UITableViewController
-
-
-
-
+@implementation BLCMedia
 
 @end
