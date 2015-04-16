@@ -88,7 +88,16 @@
 
 }
 
+- (void) tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        [self.images removeObjectAtIndex:indexPath.row];
+        [tableView reloadData];
+        
+        NSLog(@"user swipe to delete");
+    }
 
+}
 
 
 
