@@ -87,10 +87,11 @@
 
 }
 
+// Not sure how to do this part since BLCDatasource media is read only
 //- (void) tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
 //    
 //    if (editingStyle == UITableViewCellEditingStyleDelete) {
-//        [self.images removeObjectAtIndex:indexPath.row];
+//        [[BLCDataSource sharedInstance].mediaItems removeObjectAtIndex:indexPath.row];
 //        [tableView reloadData];
 //        
 //        NSLog(@"user swipe to delete");
