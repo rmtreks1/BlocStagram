@@ -45,7 +45,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     // Return the number of rows in the section.
-    return [BLCDataSource sharedInstance].mediaItems.count;
+    return [self items].count;
 }
 
 
@@ -71,7 +71,7 @@
          [cell.contentView addSubview:imageView];
      }
      
-     BLCMedia *item = [BLCDataSource sharedInstance].mediaItems[indexPath.row];
+     BLCMedia *item = [self items][indexPath.row];
      imageView.image = item.image;
      
      return cell;
@@ -80,8 +80,10 @@
 
 - (CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    BLCMedia *item = [BLCDataSource sharedInstance].mediaItems[indexPath.row];
+    BLCMedia *item = [self items][indexPath.row];
     UIImage *image = item.image;
+    
+//    NSLog(@"%lu", [self items].count); // checking that the function works
     
     return (CGRectGetWidth(self.view.frame) / image.size.width) * image.size.height;
 
@@ -100,6 +102,9 @@
 //}
 
 
+- (NSArray *) items {
+    return [BLCDataSource sharedInstance].mediaItems;
+}
 
 
 
