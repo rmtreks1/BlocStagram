@@ -11,6 +11,7 @@
 #import "BLCMedia.h"
 #import "BLCUser.h"
 #import "BLCComment.h"
+#import "BLCMediaTableViewCell.h"
 
 @interface BLCImagesTableViewController ()
 
@@ -32,7 +33,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"imageCell"];
+    [self.tableView registerClass:[BLCMediaTableViewCell class] forCellReuseIdentifier:@"mediaCell"];
+//    [self.tableView setEditing:true animated:true];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -52,27 +54,8 @@
 
  - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
  {
- 
-     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"imageCell" forIndexPath:indexPath];
-     
-     // Configure the cell...
-     static NSInteger imageViewTag = 1234;
-     UIImageView *imageView = (UIImageView*)[cell.contentView viewWithTag:imageViewTag];
-     
-     if (!imageView) {
-         // This is a new cell, it doesn't have an image view yet
-         imageView = [[UIImageView alloc] init];
-         imageView.contentMode = UIViewContentModeScaleToFill;
-         
-         imageView.frame = cell.contentView.bounds;
-         imageView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
-         
-         imageView.tag = imageViewTag;
-         [cell.contentView addSubview:imageView];
-     }
-     
-     BLCMedia *item = [self items][indexPath.row];
-     imageView.image = item.image;
+     BLCMediaTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"mediaCell" forIndexPath:indexPath];
+     cell.mediaItem = [BLCDataSource sharedInstance].mediaItems[indexPath.row];
      
      return cell;
  }
@@ -81,27 +64,24 @@
 - (CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     BLCMedia *item = [self items][indexPath.row];
-    UIImage *image = item.image;
-    
-//    NSLog(@"%lu", [self items].count); // checking that the function works
-    
-    return (CGRectGetWidth(self.view.frame) / image.size.width) * image.size.height;
-
+    return [BLCMediaTableViewCell heightForMediaItem:item width:CGRectGetWidth(self.view.frame)];
 }
 
 
 // This function doesn't work. Is this because I can't edit the data source?
-//- (void) tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-//    
-//    if (editingStyle == UITableViewCellEditingStyleDelete) {
-//        [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationNone];
-//        NSLog(@"user swipe to delete");
-//    }
-//
-//}
+
+- (void) tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        [[BLCDataSource sharedInstance].mediaItems removeObjectAtIndex:indexPath.row];
+        [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationNone];
+        NSLog(@"user swipe to delete");
+    }
+
+}
 
 
-- (NSArray *) items {
+- (NSMutableArray *) items {
     return [BLCDataSource sharedInstance].mediaItems;
 }
 
