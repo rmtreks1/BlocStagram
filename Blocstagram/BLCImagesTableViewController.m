@@ -34,6 +34,7 @@
     [super viewDidLoad];
     
     [self.tableView registerClass:[BLCMediaTableViewCell class] forCellReuseIdentifier:@"mediaCell"];
+//    [self.tableView setEditing:true animated:true];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -68,17 +69,19 @@
 
 
 // This function doesn't work. Is this because I can't edit the data source?
-//- (void) tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-//    
-//    if (editingStyle == UITableViewCellEditingStyleDelete) {
-//        [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationNone];
-//        NSLog(@"user swipe to delete");
-//    }
-//
-//}
+
+- (void) tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        [[BLCDataSource sharedInstance].mediaItems removeObjectAtIndex:indexPath.row];
+        [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationNone];
+        NSLog(@"user swipe to delete");
+    }
+
+}
 
 
-- (NSArray *) items {
+- (NSMutableArray *) items {
     return [BLCDataSource sharedInstance].mediaItems;
 }
 
