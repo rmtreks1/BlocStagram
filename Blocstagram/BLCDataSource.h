@@ -6,13 +6,17 @@
 //  Copyright (c) 2015 RMTREKS. All rights reserved.
 //
 
+@class BLCMedia;
+
 #import <Foundation/Foundation.h>
 
 @interface BLCDataSource : NSObject
 
 +(instancetype) sharedInstance;
 
-@property (nonatomic, strong) NSMutableArray *mediaItems;
+@property (nonatomic, strong, readonly) NSArray *mediaItems;
+
+- (void) deleteMediaItem:(BLCMedia *)item;
 
 
 @end
