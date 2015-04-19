@@ -200,4 +200,12 @@
 
 
 
+
+
+#pragma mark - Instagram
+
++ (NSString *) instagramClientID {
+    return @"5e2dd10b29ab44d6ab921c4b1b34a5ed";
+}
+
 @end
