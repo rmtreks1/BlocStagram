@@ -12,6 +12,7 @@
 #import <UIKit/UIKit.h> // Add this for UIImage
 
 @class BLCUser;
+//@class BLCComment; // added this in otherwise error
 
 
 
@@ -24,7 +25,7 @@
 @property (nonatomic, strong) NSString *caption;
 @property (nonatomic, strong) NSArray *comments;
 
-
+- (instancetype) initWithDictionary:(NSDictionary *)mediaDictionary;
 
 
 @end

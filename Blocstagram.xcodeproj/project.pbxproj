@@ -43,8 +43,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		012A90251AE36954007DEFBC /* BLCLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BLCLoginViewController.h; path = Blocstagram/BLCLoginViewController.h; sourceTree = "<group>"; };
-		012A90261AE36954007DEFBC /* BLCLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BLCLoginViewController.m; path = Blocstagram/BLCLoginViewController.m; sourceTree = "<group>"; };
+		012A90251AE36954007DEFBC /* BLCLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLCLoginViewController.h; sourceTree = "<group>"; };
+		012A90261AE36954007DEFBC /* BLCLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLCLoginViewController.m; sourceTree = "<group>"; };
 		01E8380F1ADF502C001A14E5 /* Blocstagram.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Blocstagram.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		01E838131ADF502C001A14E5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		01E838141ADF502C001A14E5 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -102,8 +102,6 @@
 		01E838061ADF502C001A14E5 = {
 			isa = PBXGroup;
 			children = (
-				012A90251AE36954007DEFBC /* BLCLoginViewController.h */,
-				012A90261AE36954007DEFBC /* BLCLoginViewController.m */,
 				01E838111ADF502C001A14E5 /* Blocstagram */,
 				01E8382B1ADF502C001A14E5 /* BlocstagramTests */,
 				01E838101ADF502C001A14E5 /* Products */,
@@ -137,6 +135,8 @@
 				01E8385E1ADFBE89001A14E5 /* BLCMediaTableViewCell.m */,
 				01E8384E1ADF5395001A14E5 /* BLCImagesTableViewController.h */,
 				01E8384F1ADF5395001A14E5 /* BLCImagesTableViewController.m */,
+				012A90251AE36954007DEFBC /* BLCLoginViewController.h */,
+				012A90261AE36954007DEFBC /* BLCLoginViewController.m */,
 				01E838191ADF502C001A14E5 /* ViewController.h */,
 				01E8381A1ADF502C001A14E5 /* ViewController.m */,
 				01E8381F1ADF502C001A14E5 /* Images.xcassets */,
