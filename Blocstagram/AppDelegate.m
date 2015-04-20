@@ -24,22 +24,33 @@
     [BLCDataSource sharedInstance];
     
     UINavigationController *navVC = [[UINavigationController alloc] init];
-    BLCLoginViewController *loginVC = [[BLCLoginViewController alloc] init];
-    [navVC setViewControllers:@[loginVC] animated:YES];
-//    loginVC.title = @"Login";
     
-    
-//    // setting a back button on the left
-//    UIBarButtonItem *backToLogin = [[UIBarButtonItem alloc] initWithTitle:@"BACK!!!" style:UIBarButtonItemStylePlain target:self action:nil];
-//    
-    
-    
-    
-    
-    [[NSNotificationCenter defaultCenter] addObserverForName:BLCLoginViewControllerDidGetAccessTokenNotification object:nil queue:nil usingBlock:^(NSNotification *note) {
-        BLCImagesTableViewController *imagesVC = [[BLCImagesTableViewController alloc] init];
+    if(![BLCDataSource sharedInstance].accessToken){
+        BLCLoginViewController *loginVC = [[BLCLoginViewController alloc] init];
+        [navVC setViewControllers:@[loginVC] animated:YES];
+        //    loginVC.title = @"Login";
+        
+        
+        //    // setting a back button on the left
+        //    UIBarButtonItem *backToLogin = [[UIBarButtonItem alloc] initWithTitle:@"BACK!!!" style:UIBarButtonItemStylePlain target:self action:nil];
+        //
+        
+        
+        
+        
+        [[NSNotificationCenter defaultCenter] addObserverForName:BLCLoginViewControllerDidGetAccessTokenNotification object:nil queue:nil usingBlock:^(NSNotification *note) {
+            BLCImagesTableViewController *imagesVC = [[BLCImagesTableViewController alloc] init];
+            [navVC setViewControllers:@[imagesVC] animated:YES];
+        }];
+    } else {
+        BLCImagesTableViewController *imagesVC = [[BLCImagesTableViewController alloc]init];
         [navVC setViewControllers:@[imagesVC] animated:YES];
-    }];
+    }
+    
+    
+    
+    
+    
     
     self.window.rootViewController = navVC;
     
