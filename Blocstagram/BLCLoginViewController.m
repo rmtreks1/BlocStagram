@@ -32,7 +32,7 @@ NSString *const BLCLoginViewControllerDidGetAccessTokenNotification = @"BLCLogin
     self.view = webView;
     self.title = @"Login";
     
-    UIBarButtonItem *backToLogin = [[UIBarButtonItem alloc] initWithTitle:@"BACK!!!" style:UIBarButtonItemStylePlain target:self action:nil];
+    UIBarButtonItem *backToLogin = [[UIBarButtonItem alloc] initWithTitle:@"BACK!!!" style:UIBarButtonItemStylePlain target:self action:@selector(instagramLoginScreen)];
 
     
     self.navigationItem.leftBarButtonItem = backToLogin;
@@ -55,6 +55,21 @@ NSString *const BLCLoginViewControllerDidGetAccessTokenNotification = @"BLCLogin
     }
     
 }
+
+
+
+- (void) instagramLoginScreen {
+    NSString *urlString = [NSString stringWithFormat:@"https://instagram.com/oauth/authorize/?client_id=%@&redirect_uri=%@&response_type=token", [BLCDataSource instagramClientID], [self redirectURI]];
+    
+    NSURL *url = [NSURL URLWithString:urlString];
+    
+    if (url) {
+        NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
+        [self.webView loadRequest:request];
+        
+    }
+}
+
 
 
 
