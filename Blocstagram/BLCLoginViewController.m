@@ -30,6 +30,7 @@ NSString *const BLCLoginViewControllerDidGetAccessTokenNotification = @"BLCLogin
     
     self.webView = webView;
     self.view = webView;
+    self.title = @"Login";
 }
 
 

@@ -26,7 +26,7 @@
     UINavigationController *navVC = [[UINavigationController alloc] init];
     BLCLoginViewController *loginVC = [[BLCLoginViewController alloc] init];
     [navVC setViewControllers:@[loginVC] animated:YES];
-    loginVC.title = @"Login";
+//    loginVC.title = @"Login";
     
     [[NSNotificationCenter defaultCenter] addObserverForName:BLCLoginViewControllerDidGetAccessTokenNotification object:nil queue:nil usingBlock:^(NSNotification *note) {
         BLCImagesTableViewController *imagesVC = [[BLCImagesTableViewController alloc] init];
