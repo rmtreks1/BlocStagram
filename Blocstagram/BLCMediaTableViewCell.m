@@ -68,7 +68,7 @@ static NSParagraphStyle *paragraphStyle;
         
         // tap gesture recognizer code on image view
         self.mediaImageView.userInteractionEnabled = YES;
-        self.tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapFired)];
+        self.tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapFired:)];
         self.tapGestureRecognizer.delegate = self;
         [self.mediaImageView addGestureRecognizer:self.tapGestureRecognizer];
         
@@ -249,7 +249,7 @@ static NSParagraphStyle *paragraphStyle;
 
 #pragma mark - Image View
 
-- (void) tapFired: (UITapGestureRecognizer *)sender {
+- (void) tapFired:(UITapGestureRecognizer *)sender {
     [self.delegate cell:self didTapImageView:self.imageView];
 }
 
