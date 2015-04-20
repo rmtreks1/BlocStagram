@@ -31,6 +31,13 @@ NSString *const BLCLoginViewControllerDidGetAccessTokenNotification = @"BLCLogin
     self.webView = webView;
     self.view = webView;
     self.title = @"Login";
+    
+    UIBarButtonItem *backToLogin = [[UIBarButtonItem alloc] initWithTitle:@"BACK!!!" style:UIBarButtonItemStylePlain target:self action:nil];
+
+    
+    self.navigationItem.leftBarButtonItem = backToLogin;
+    
+
 }
 
 

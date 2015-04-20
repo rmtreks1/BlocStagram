@@ -28,6 +28,14 @@
     [navVC setViewControllers:@[loginVC] animated:YES];
 //    loginVC.title = @"Login";
     
+    
+//    // setting a back button on the left
+//    UIBarButtonItem *backToLogin = [[UIBarButtonItem alloc] initWithTitle:@"BACK!!!" style:UIBarButtonItemStylePlain target:self action:nil];
+//    
+    
+    
+    
+    
     [[NSNotificationCenter defaultCenter] addObserverForName:BLCLoginViewControllerDidGetAccessTokenNotification object:nil queue:nil usingBlock:^(NSNotification *note) {
         BLCImagesTableViewController *imagesVC = [[BLCImagesTableViewController alloc] init];
         [navVC setViewControllers:@[imagesVC] animated:YES];
