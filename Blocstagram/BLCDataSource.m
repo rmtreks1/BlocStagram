@@ -100,8 +100,16 @@
     if (self.isRefreshing == NO) {
         self.isRefreshing = YES;
         
-        NSString *minID = [[self.mediaItems firstObject] idNumber];
-        NSDictionary *parameters = @{@"min_id": minID};
+        NSMutableDictionary *parameters = [[NSMutableDictionary alloc] init];
+        
+        // DEBUG
+        NSLog(@"count of media items %lu", (unsigned long)self.mediaItems.count);
+        
+        if (self.mediaItems.count > 0) {
+            NSString *minID = [[self.mediaItems firstObject] idNumber];
+            NSDictionary *tmpDictionary = @{@"min_id": minID};
+            [parameters addEntriesFromDictionary:tmpDictionary];
+        }
         
         [self populateDataWithParameters:parameters completionHandler:^(NSError *error){
             self.isRefreshing = NO;
@@ -180,8 +188,8 @@
                 NSError *webError;
                 NSData *responseData = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&webError];
                 
-                NSError *jsonError;
-                NSDictionary *feedDictionary = [NSJSONSerialization JSONObjectWithData:responseData options:0 error:&jsonError];
+//                NSError *jsonError;
+//                NSDictionary *feedDictionary = [NSJSONSerialization JSONObjectWithData:responseData options:0 error:&jsonError];
                 
                 if (responseData) {
                     NSError *jsonError;
