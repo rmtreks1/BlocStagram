@@ -13,6 +13,7 @@
 
 @property (nonatomic, weak) UIWebView *webView;
 
+
 @end
 
 @implementation BLCLoginViewController
@@ -32,8 +33,8 @@ NSString *const BLCLoginViewControllerDidGetAccessTokenNotification = @"BLCLogin
     self.view = webView;
     self.title = @"Login";
     
-    UIBarButtonItem *backToLogin = [[UIBarButtonItem alloc] initWithTitle:@"BACK!!!" style:UIBarButtonItemStylePlain target:self action:@selector(instagramLoginScreen)];
-
+    // Adding Back Button
+    UIBarButtonItem *backToLogin = [[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStylePlain target:self action:@selector(instagramLoginScreen)];
     
     self.navigationItem.leftBarButtonItem = backToLogin;
     
@@ -103,6 +104,7 @@ NSString *const BLCLoginViewControllerDidGetAccessTokenNotification = @"BLCLogin
     
         return NO;
     }
+    
     return YES;
 }
 
