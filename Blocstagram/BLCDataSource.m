@@ -24,6 +24,8 @@
 @property (nonatomic, strong) NSString *accessToken;
 @property (nonatomic, assign) BOOL thereAreNoMoreOlderMessages;
 
+@property (nonatomic, strong) dispatch_group_t groupDispatch;
+
 @end
 
 
@@ -45,6 +47,8 @@
     
     if (self) {
         self.accessToken = [UICKeyChainStore stringForKey:@"access token"];
+        
+        self.groupDispatch = dispatch_group_create();
         
         if (!self.accessToken) {
             [self registerForAccessTokenNotification];
@@ -282,7 +286,9 @@
     
     if (tmpMediaItems.count > 0) {
         // Write the changes to disk
-        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        dispatch_group_notify(self.groupDispatch, dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+//        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+//        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
             NSUInteger numberOfItemsToSave = MIN(self.mediaItems.count, 50);
             NSArray *mediaItemsToSave = [self.mediaItems subarrayWithRange:NSMakeRange(0, numberOfItemsToSave)];
             
@@ -307,7 +313,10 @@
 
 - (void) downloadImageForMediaItem: (BLCMedia *)mediaItem{
     if (mediaItem.mediaURL && !mediaItem.image) {
-        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        
+        dispatch_group_async(self.groupDispatch, dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        
+//        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
             NSURLRequest *request = [NSURLRequest requestWithURL:mediaItem.mediaURL];
             
             NSURLResponse *response;
