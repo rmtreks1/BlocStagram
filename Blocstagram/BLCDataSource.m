@@ -294,7 +294,9 @@
                 NSLog(@"Couldn't write file: %@", dataError);
             }
         });
-        
+    
+        // debugging why the images aren't stored
+        NSLog(@"wrote media items to disk");
     }
 }
 
@@ -326,6 +328,9 @@
                     NSLog(@"Error downloading image: %@", error);
                 }
             }
+            
+            // debugging why the images aren't stored
+            NSLog(@"retrieved the images");
         });
     }
 }
