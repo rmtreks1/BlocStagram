@@ -281,6 +281,9 @@ static NSParagraphStyle *paragraphStyle;
 
 - (void) twoFingerTapFired:(UITapGestureRecognizer *)sender{
     NSLog(@"two fingers tapped");
+    if (!self.mediaItem.image) { // check first that no image is already downloaded
+        NSLog(@"No image present");
+    }
 }
 
 
