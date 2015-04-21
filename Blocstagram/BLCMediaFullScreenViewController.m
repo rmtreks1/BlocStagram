@@ -8,6 +8,7 @@
 
 #import "BLCMediaFullScreenViewController.h"
 #import "BLCMedia.h"
+#import "ShareUtilityViewController.h"
 
 @interface BLCMediaFullScreenViewController () <UIScrollViewDelegate>
 
@@ -183,24 +184,25 @@
 
 - (void) sharePressed:(id)sender{
     NSLog(@"share button pressed");
+    [ShareUtilityViewController shareMedia:self.media];
     
     
     // placeholder code to be refactored
-    
-    NSMutableArray *itemsToShare = [NSMutableArray array];
-    
-    if (self.media.caption.length > 0) {
-        [itemsToShare addObject:self.media.caption];
-    }
-    
-    if (self.media.image) {
-        [itemsToShare addObject:self.media.image];
-    }
-    
-    if (itemsToShare.count > 0) {
-        UIActivityViewController *activityVC = [[UIActivityViewController alloc] initWithActivityItems:itemsToShare applicationActivities:nil];
-        [self presentViewController:activityVC animated:YES completion:nil];
-    }
+//    
+//    NSMutableArray *itemsToShare = [NSMutableArray array];
+//    
+//    if (self.media.caption.length > 0) {
+//        [itemsToShare addObject:self.media.caption];
+//    }
+//    
+//    if (self.media.image) {
+//        [itemsToShare addObject:self.media.image];
+//    }
+//    
+//    if (itemsToShare.count > 0) {
+//        UIActivityViewController *activityVC = [[UIActivityViewController alloc] initWithActivityItems:itemsToShare applicationActivities:nil];
+//        [self presentViewController:activityVC animated:YES completion:nil];
+//    }
 
     
     
