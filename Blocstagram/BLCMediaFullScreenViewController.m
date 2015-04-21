@@ -14,6 +14,8 @@
 @property (nonatomic, strong) BLCMedia *media;
 @property (nonatomic, strong) UITapGestureRecognizer *tap;
 @property (nonatomic, strong) UITapGestureRecognizer *doubleTap;
+@property (nonatomic, strong) UIButton *shareButton;
+@property (nonatomic, strong) UILabel *placeholder;
 
 
 @end
@@ -27,6 +29,11 @@
     if (self) {
         self.media = media;
     }
+    
+   
+    
+    
+    
     
     return self;
 }
@@ -63,6 +70,17 @@
     [self.scrollView addGestureRecognizer:self.tap];
     [self.scrollView addGestureRecognizer:self.doubleTap];
     
+    
+    // add share button
+    self.shareButton = [UIButton buttonWithType:UIButtonTypeSystem];
+    self.shareButton.titleLabel.textAlignment = NSTextAlignmentCenter;
+    self.shareButton.titleLabel.font = [UIFont systemFontOfSize:12];
+    self.shareButton.backgroundColor = [UIColor whiteColor];
+    self.shareButton.titleLabel.textColor = [UIColor blueColor];
+    [self.shareButton setTitle:@"Share" forState:UIControlStateNormal];
+    self.shareButton.alpha = 0.5;
+    self.shareButton.frame = CGRectMake(self.view.bounds.size.width - 20 - 50, 45, 50, 20);
+    [self.view addSubview:self.shareButton];
 }
 
 
