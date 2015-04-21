@@ -6,24 +6,14 @@
 //  Copyright (c) 2015 RMTREKS. All rights reserved.
 //
 
-#import "ShareUtilityViewController.h"
+#import "ShareUtility.h"
 
 
-@interface ShareUtilityViewController ()
+@interface ShareUtility ()
 
 @end
 
-@implementation ShareUtilityViewController
-
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    // Do any additional setup after loading the view.
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
+@implementation ShareUtility
 
 
 

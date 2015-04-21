@@ -8,7 +8,7 @@
 
 #import "BLCMediaFullScreenViewController.h"
 #import "BLCMedia.h"
-#import "ShareUtilityViewController.h"
+#import "ShareUtility.h"
 
 @interface BLCMediaFullScreenViewController () <UIScrollViewDelegate>
 
@@ -185,7 +185,7 @@
 - (void) sharePressed:(id)sender{
     NSLog(@"share button pressed");
     
-    UIViewController *shareVC = [ShareUtilityViewController shareMediaVC:self.media];
+    UIViewController *shareVC = [ShareUtility shareMediaVC:self.media];
     if (shareVC) {
         [self presentViewController:shareVC animated:YES completion:nil];
     }

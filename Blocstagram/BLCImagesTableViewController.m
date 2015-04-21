@@ -14,7 +14,7 @@
 #import "BLCMediaTableViewCell.h"
 #import "BLCMediaFullScreenViewController.h"
 #import "BLCMediaFullScreenAnimator.h"
-#import "ShareUtilityViewController.h"
+#import "ShareUtility.h"
 
 @interface BLCImagesTableViewController () <BLCMediaTableViewCellDelegate, UIViewControllerTransitioningDelegate>
 
@@ -210,7 +210,7 @@
 
 - (void) cell:(BLCMediaTableViewCell *)cell didLongPressImageView:(UIImageView *)imageView {
 
-    UIViewController *shareVC = [ShareUtilityViewController shareMediaVC:cell.mediaItem];
+    UIViewController *shareVC = [ShareUtility shareMediaVC:cell.mediaItem];
     if (shareVC) {
         [self presentViewController:shareVC animated:YES completion:nil];
     }

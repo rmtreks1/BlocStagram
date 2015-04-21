@@ -6,10 +6,10 @@
 //  Copyright (c) 2015 RMTREKS. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+//#import <UIKit/UIKit.h>
 #import "BLCMedia.h"
 
-@interface ShareUtilityViewController : UIViewController
+@interface ShareUtility : NSObject
 
 
 + (UIViewController *) shareMediaVC:(BLCMedia *)media;
