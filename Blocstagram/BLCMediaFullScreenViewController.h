@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@class BLCMedia, ShareUtilityViewController;
+@class BLCMedia;
 
 @interface BLCMediaFullScreenViewController : UIViewController
 

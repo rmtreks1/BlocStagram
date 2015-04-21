@@ -26,27 +26,6 @@
 }
 
 
-+ (NSArray *) shareMedia:(BLCMedia *)media {
-    NSString *caption = media.caption;
-    NSLog(@"caption is:%@",caption);
-    
-    
-    
-    NSMutableArray *itemsToShare = [NSMutableArray array];
-    
-    if (media.caption.length > 0) {
-        [itemsToShare addObject:media.caption];
-    }
-    
-    if (media.image) {
-        [itemsToShare addObject:media.image];
-    }
-    
-    
-    return itemsToShare;
-}
-
-
 
 + (UIViewController *) shareMediaVC:(BLCMedia *)media {
     NSString *caption = media.caption;
