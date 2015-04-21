@@ -80,6 +80,9 @@
     [self.shareButton setTitle:@"Share" forState:UIControlStateNormal];
     self.shareButton.alpha = 0.5;
     self.shareButton.frame = CGRectMake(self.view.bounds.size.width - 20 - 50, 45, 50, 20);
+    
+    [self.shareButton addTarget:self action:@selector(sharePressed:) forControlEvents:UIControlEventTouchUpInside];
+    
     [self.view addSubview:self.shareButton];
 }
 
@@ -173,6 +176,14 @@
     }
 }
 
+
+
+
+#pragma mark - Button Pressed
+
+- (void) sharePressed:(id)sender{
+    NSLog(@"share button pressed");
+}
 
 
 @end
