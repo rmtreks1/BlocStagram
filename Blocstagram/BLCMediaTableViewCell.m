@@ -10,6 +10,7 @@
 #import "BLCMedia.h"
 #import "BLCComment.h"
 #import "BLCUser.h"
+#import "BLCDataSource.h"
 
 
 @interface BLCMediaTableViewCell () <UIGestureRecognizerDelegate>
@@ -283,6 +284,7 @@ static NSParagraphStyle *paragraphStyle;
     NSLog(@"two fingers tapped");
     if (!self.mediaItem.image) { // check first that no image is already downloaded
         NSLog(@"No image present");
+        [[BLCDataSource sharedInstance] downloadImageForMediaItem:self.mediaItem];
     }
 }
 
