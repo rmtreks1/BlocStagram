@@ -184,13 +184,10 @@
 
 - (void) sharePressed:(id)sender{
     NSLog(@"share button pressed");
-//    [ShareUtilityViewController shareMedia:self.media];
     
-    NSArray *itemsToShare = [ShareUtilityViewController shareMedia:self.media];
-    
-    if (itemsToShare.count > 0) {
-        UIActivityViewController *activityVC = [[UIActivityViewController alloc] initWithActivityItems:itemsToShare applicationActivities:nil];
-        [self presentViewController:activityVC animated:YES completion:nil];
+    UIViewController *shareVC = [ShareUtilityViewController shareMediaVC:self.media];
+    if (shareVC) {
+        [self presentViewController:shareVC animated:YES completion:nil];
     }
 }
 
