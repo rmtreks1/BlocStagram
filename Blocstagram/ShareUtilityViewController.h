@@ -11,6 +11,6 @@
 
 @interface ShareUtilityViewController : UIViewController
 
-+ (void) shareMedia:(BLCMedia *)media;
++ (NSArray *) shareMedia:(BLCMedia *)media;
 
 @end
