@@ -5,7 +5,11 @@
 	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
+<<<<<<< HEAD
 	<string>948E12A6-45AD-4BA4-898F-2DC33CC95549</string>
+=======
+	<string>FA4E57AD-E9D5-4BA0-BC7A-3A0072FEEAC4</string>
+>>>>>>> 3c5c72b0c477a9224c5be2853f12f7c2afd10882
 	<key>IDESourceControlProjectName</key>
 	<string>Blocstagram</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
