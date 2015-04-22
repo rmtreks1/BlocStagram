@@ -220,6 +220,11 @@
 }
 
 
+- (void) scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate{
+    [self loadImagesForVisibleCells];
+}
+
+
 - (NSArray *) items {
     return [BLCDataSource sharedInstance].mediaItems;
 }
