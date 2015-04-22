@@ -11,6 +11,17 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h> // Add this for UIImage
 
+
+typedef NS_ENUM(NSInteger, BLCMediaDownloadState) {
+    BLCMediaDownloadStateNeedsImage             = 0,
+    BLCMediaDownloadStateDownloadInProgress     = 1,
+    BLCMediaDownloadStateNonRecoverableError    = 2,
+    BLCMediaDownloadStateHasImage               = 3
+};
+
+
+
+
 @class BLCUser;
 //@class BLCComment; // added this in otherwise error
 
@@ -24,6 +35,7 @@
 @property (nonatomic, strong) UIImage *image;
 @property (nonatomic, strong) NSString *caption;
 @property (nonatomic, strong) NSArray *comments;
+@property (nonatomic, assign) BLCMediaDownloadState downloadState;
 
 - (instancetype) initWithDictionary:(NSDictionary *)mediaDictionary;
 

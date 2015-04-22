@@ -119,13 +119,45 @@
  - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
  {
      BLCMediaTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"mediaCell" forIndexPath:indexPath];
-     
      cell.delegate = self;
-     
      cell.mediaItem = [BLCDataSource sharedInstance].mediaItems[indexPath.row];
+     
+     
+     NSLog(@"draggin %d",self.tableView.dragging);
+     NSLog(@"decelerating %d", self.tableView.decelerating);
+
+     
+     
+     if (cell.mediaItem.downloadState == BLCMediaDownloadStateNeedsImage && !self.tableView.decelerating && !self.tableView.dragging) {
+         [[BLCDataSource sharedInstance] downloadImageForMediaItem:cell.mediaItem];
+     }
+     
+     
+     
      
      return cell;
  }
+
+
+- (void) tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath{
+//    BLCMedia *mediaItem = [BLCDataSource sharedInstance].mediaItems[indexPath.row];
+//    if (mediaItem.downloadState == BLCMediaDownloadStateNeedsImage) {
+//        [[BLCDataSource sharedInstance] downloadImageForMediaItem:mediaItem];
+//    }
+}
+
+
+
+- (void) loadImagesForVisibleCells {
+    NSArray *visiblePaths = self.tableView.indexPathsForVisibleRows;
+    
+    for (NSIndexPath *indexPath in visiblePaths) {
+        [self tableView:self.tableView cellForRowAtIndexPath:indexPath];
+    }
+}
+
+
+
 
 
 - (CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -184,6 +216,12 @@
 
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
     [self infiniteScrollIfNecessary];
+    [self loadImagesForVisibleCells];
+}
+
+
+- (void) scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate{
+    [self loadImagesForVisibleCells];
 }
 
 
@@ -239,6 +277,12 @@
     return animator;
 }
 
+
+
+
+
+
+#pragma mark - Visible Cells
 
 
 
