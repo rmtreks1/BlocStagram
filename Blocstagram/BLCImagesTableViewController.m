@@ -122,7 +122,13 @@
      cell.delegate = self;
      cell.mediaItem = [BLCDataSource sharedInstance].mediaItems[indexPath.row];
      
-     if (cell.mediaItem.downloadState == BLCMediaDownloadStateNeedsImage) {
+     
+     NSLog(@"draggin %d",self.tableView.dragging);
+     NSLog(@"decelerating %d", self.tableView.decelerating);
+
+     
+     
+     if (cell.mediaItem.downloadState == BLCMediaDownloadStateNeedsImage && !self.tableView.decelerating && !self.tableView.dragging) {
          [[BLCDataSource sharedInstance] downloadImageForMediaItem:cell.mediaItem];
      }
      
