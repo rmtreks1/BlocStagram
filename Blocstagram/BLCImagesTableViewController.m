@@ -148,6 +148,18 @@
 
 
 
+- (void) loadImagesForVisibleCells {
+    NSArray *visiblePaths = self.tableView.indexPathsForVisibleRows;
+    
+    for (NSIndexPath *indexPath in visiblePaths) {
+        [self tableView:self.tableView cellForRowAtIndexPath:indexPath];
+    }
+}
+
+
+
+
+
 - (CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     BLCMedia *item = [self items][indexPath.row];
@@ -204,6 +216,7 @@
 
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
     [self infiniteScrollIfNecessary];
+    [self loadImagesForVisibleCells];
 }
 
 
@@ -259,6 +272,12 @@
     return animator;
 }
 
+
+
+
+
+
+#pragma mark - Visible Cells
 
 
 
