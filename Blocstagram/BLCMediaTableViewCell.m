@@ -10,6 +10,7 @@
 #import "BLCMedia.h"
 #import "BLCComment.h"
 #import "BLCUser.h"
+#import "BLCDataSource.h"
 
 
 @interface BLCMediaTableViewCell () <UIGestureRecognizerDelegate>
@@ -24,6 +25,7 @@
 
 @property (nonatomic, strong) UITapGestureRecognizer *tapGestureRecognizer;
 @property (nonatomic, strong) UILongPressGestureRecognizer *longPressGestureRecognizer;
+@property (nonatomic, strong) UITapGestureRecognizer *twoFingerTapGestureRecognizer;
 
 @end
 
@@ -128,6 +130,15 @@ static NSParagraphStyle *paragraphStyle;
         
         [self.contentView addConstraints:@[self.imageHeightConstraint, self.usernameAndCaptionLabelHeightConstraint, self.commentLabelHeightConstraint]];
 
+        
+        
+        // tap gestures on overall cell
+        self.twoFingerTapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(twoFingerTapFired:)];
+        self.twoFingerTapGestureRecognizer.numberOfTouchesRequired = 2;
+        
+        [self addGestureRecognizer:self.twoFingerTapGestureRecognizer];
+
+        
         
         
     }
@@ -267,6 +278,15 @@ static NSParagraphStyle *paragraphStyle;
     }
 }
 
+
+
+- (void) twoFingerTapFired:(UITapGestureRecognizer *)sender{
+    NSLog(@"two fingers tapped");
+    if (!self.mediaItem.image) { // check first that no image is already downloaded
+        NSLog(@"No image present");
+        [[BLCDataSource sharedInstance] downloadImageForMediaItem:self.mediaItem];
+    }
+}
 
 
 
