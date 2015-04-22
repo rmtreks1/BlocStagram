@@ -119,20 +119,25 @@
  - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
  {
      BLCMediaTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"mediaCell" forIndexPath:indexPath];
-     
      cell.delegate = self;
-     
      cell.mediaItem = [BLCDataSource sharedInstance].mediaItems[indexPath.row];
+     
+     if (cell.mediaItem.downloadState == BLCMediaDownloadStateNeedsImage) {
+         [[BLCDataSource sharedInstance] downloadImageForMediaItem:cell.mediaItem];
+     }
+     
+     
+     
      
      return cell;
  }
 
 
 - (void) tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath{
-    BLCMedia *mediaItem = [BLCDataSource sharedInstance].mediaItems[indexPath.row];
-    if (mediaItem.downloadState == BLCMediaDownloadStateNeedsImage) {
-        [[BLCDataSource sharedInstance] downloadImageForMediaItem:mediaItem];
-    }
+//    BLCMedia *mediaItem = [BLCDataSource sharedInstance].mediaItems[indexPath.row];
+//    if (mediaItem.downloadState == BLCMediaDownloadStateNeedsImage) {
+//        [[BLCDataSource sharedInstance] downloadImageForMediaItem:mediaItem];
+//    }
 }
 
 
