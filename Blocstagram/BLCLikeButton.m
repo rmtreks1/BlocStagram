@@ -32,7 +32,7 @@
         self.spinnerView = [[BLCCircleSpinnerView alloc] initWithFrame:CGRectMake(0, 0, 44, 44)];
         [self addSubview:self.spinnerView];
         
-        self.imageView.contentMode = UIViewContentModeScaleAspectFill;
+        self.imageView.contentMode = UIViewContentModeScaleAspectFit;
         
         self.contentEdgeInsets = UIEdgeInsetsMake(10, 10, 10, 10);
         self.contentVerticalAlignment = UIControlContentVerticalAlignmentTop;
