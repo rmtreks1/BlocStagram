@@ -15,7 +15,7 @@
 @property (nonatomic, assign) NSInteger likesCount;
 
 
-- (instancetype) initWithLikesCount: (NSInteger)likesCount;
+
 - (void) setLikesCount: (NSInteger)likesCount;
 
 
