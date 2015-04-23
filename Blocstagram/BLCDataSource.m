@@ -363,7 +363,9 @@
             mediaItem.likeState = BLCLikeStateLiked;
             [self reloadMediaItem:mediaItem];
         } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-            mediaItem.likeState = BLCLikeStateNotLiked;
+            mediaItem.likeState = BLCLikeStateLiked; // faking as though got a positive response back
+            mediaItem.likesCount += 1; // faking as though got a positive response back
+            //            mediaItem.likeState = BLCLikeStateNotLiked;
             [self reloadMediaItem:mediaItem];
             NSLog(@"failed to POST like to instagram");
         }];
@@ -375,7 +377,10 @@
             mediaItem.likeState = BLCLikeStateNotLiked;
             [self reloadMediaItem:mediaItem];
         } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-            mediaItem.likeState = BLCLikeStateLiked;
+            mediaItem.likeState = BLCLikeStateNotLiked; // faking as though got a positive response back
+            mediaItem.likesCount -= 1; // faking as though got a positive response back
+
+//            mediaItem.likeState = BLCLikeStateLiked;
             [self reloadMediaItem:mediaItem];
         }];
         
