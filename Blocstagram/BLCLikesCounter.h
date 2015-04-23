@@ -16,8 +16,7 @@
 
 
 - (instancetype) initWithLikesCount: (NSInteger)likesCount;
-- (instancetype) initWithDictionary:(NSDictionary *)likesDictionary;
-
+- (void) setLikesCount: (NSInteger)likesCount;
 
 
 @end

@@ -99,7 +99,7 @@ static NSParagraphStyle *paragraphStyle;
         [self.likeButton addTarget:self action:@selector(likePressed:) forControlEvents:UIControlEventTouchUpInside];
         self.likeButton.backgroundColor = usernameLabelGray;
         
-        self.likeCounter = [[BLCLikesCounter alloc] initWithLikesCount:self.mediaItem.likesCount];
+        self.likeCounter = [[BLCLikesCounter alloc] init];
         self.likeCounter.backgroundColor = usernameLabelGray;
         
         
@@ -239,6 +239,7 @@ static NSParagraphStyle *paragraphStyle;
     self.usernameAndCaptionLabel.attributedText = [self usernameAndCaptionString];
     self.commentLabel.attributedText = [self commentString];
     self.likeButton.likeButtonState = mediaItem.likeState;
+    self.likeCounter.likesCount = mediaItem.likesCount;
     
     
 //    self.imageHeightConstraint.constant = self.mediaItem.image.size.height / self.mediaItem.image.size.width * CGRectGetWidth(self.contentView.bounds);

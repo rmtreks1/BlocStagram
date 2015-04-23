@@ -146,7 +146,7 @@
         NSMutableDictionary *parameters = [[NSMutableDictionary alloc] init];
         
         // DEBUG
-        NSLog(@"count of media items %lu", (unsigned long)self.mediaItems.count);
+//        NSLog(@"count of media items %lu", (unsigned long)self.mediaItems.count);
         
         if (self.mediaItems.count > 0) {
             NSString *minID = [[self.mediaItems firstObject] idNumber];
