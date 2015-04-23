@@ -26,6 +26,9 @@ typedef void (^BLCNewItemCompletionBlock)(NSError *error);
 - (void) requestNewItemsWithCompletionHandler:(BLCNewItemCompletionBlock)completionHandler;
 - (void) requestOldItemsWithCompletionHandler:(BLCNewItemCompletionBlock)completionHandler;
 - (void) downloadImageForMediaItem: (BLCMedia *)mediaItem;
+- (void) toggleLikeOnMediaItem: (BLCMedia *)mediaItem;
+
+
 
 + (NSString *) instagramClientID; // why the + sign, why not as a property?
 
