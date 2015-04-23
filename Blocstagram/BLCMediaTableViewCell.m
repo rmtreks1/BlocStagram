@@ -100,7 +100,7 @@ static NSParagraphStyle *paragraphStyle;
         self.likeButton.backgroundColor = usernameLabelGray;
         
         self.likeCounter = [[BLCLikesCounter alloc] initWithLikesCount];
-        self.likeCounter.backgroundColor = [UIColor blueColor];
+        self.likeCounter.backgroundColor = usernameLabelGray;
         
         
     
