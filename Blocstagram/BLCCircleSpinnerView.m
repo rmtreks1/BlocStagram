@@ -21,6 +21,28 @@
 @implementation BLCCircleSpinnerView
 
 
+
+- (id)initWithFrame:(CGRect)frame{
+    self = [super initWithFrame:frame];
+    if (self) {
+        self.strokeThickness = 1;
+        self.radius = 12;
+        self.strokeColor = [UIColor purpleColor];
+    }
+    return self;
+}
+
+
+- (CGSize)sizeThatFits:(CGSize)size{
+    return CGSizeMake((self.radius+self.strokeThickness/2+5)*2, (self.radius+self.strokeThickness/2+5)*2);
+}
+
+
+
+
+
+
+
 - (CAShapeLayer*)circleLayer {
     if (!_circleLayer) {
         CGPoint arcCenter = CGPointMake(self.radius+self.strokeThickness/2+5, self.radius+self.strokeThickness/2+5);
@@ -81,7 +103,51 @@
 }
 
 
+- (void) layoutAnimatedLayer{
+    [self.layer addSublayer:self.circleLayer];
+    self.circleLayer.position = CGPointMake(CGRectGetMidX(self.bounds), CGRectGetMidY(self.bounds));
+}
 
+
+- (void)willMoveToSuperview:(UIView *)newSuperview{
+    if (newSuperview != nil) {
+        [self layoutAnimatedLayer];
+    } else { // what does this bit do? and why?
+        [self.circleLayer removeFromSuperlayer];
+        self.circleLayer = nil;
+    }
+}
+
+
+- (void)setFrame:(CGRect)frame{
+    [super setFrame:frame];
+    
+    if (self.superview != nil) {
+        [self layoutAnimatedLayer];
+    }
+}
+
+
+- (void)setRadius:(CGFloat)radius{
+    _radius = radius;
+    
+    [_circleLayer removeFromSuperlayer];
+    _circleLayer = nil; // what does this bit do? and why?
+    
+    [self layoutAnimatedLayer]; // won't _circleLayer be nil? so what's being added a sublayer to self.layer?
+}
+
+
+- (void)setStrokeColor:(UIColor *)strokeColor{
+    _strokeColor = strokeColor;
+    _circleLayer.strokeColor = strokeColor.CGColor;
+}
+
+
+- (void)setStrokeThickness:(CGFloat)strokeThickness{
+    _strokeThickness = strokeThickness;
+    _circleLayer.lineWidth = _strokeThickness; // why did we need to do this - why not just strokeThickness?
+}
 
 
 
