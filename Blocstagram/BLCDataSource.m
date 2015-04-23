@@ -359,37 +359,65 @@
     if (mediaItem.likeState == BLCLikeStateNotLiked) {
         mediaItem.likeState = BLCLikeStateLiking;
         
-        [self.instagramOperationManager POST:urlString parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
-            mediaItem.likeState = BLCLikeStateLiked;
-            [self reloadMediaItem:mediaItem];
-        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-            mediaItem.likeState = BLCLikeStateLiked; // faking as though got a positive response back
-            mediaItem.likesCount += 1; // faking as though got a positive response back
-            //            mediaItem.likeState = BLCLikeStateNotLiked;
-            [self reloadMediaItem:mediaItem];
-            NSLog(@"failed to POST like to instagram");
-        }];
+        mediaItem.likeState = BLCLikeStateLiked; // faking as though got a positive response back
+        mediaItem.likesCount += 1; // faking as though got a positive response back
+
+//
+//        
+//        [self.instagramOperationManager POST:urlString parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
+//            mediaItem.likeState = BLCLikeStateLiked;
+//            [self reloadMediaItem:mediaItem];
+//        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+//            
+//            //            mediaItem.likeState = BLCLikeStateNotLiked;
+//            [self reloadMediaItem:mediaItem];
+//            NSLog(@"failed to POST like to instagram");
+//        }];
     } else if (mediaItem.likeState == BLCLikeStateLiked) {
         
         mediaItem.likeState = BLCLikeStateUnliking;
-        
-        [self.instagramOperationManager DELETE:urlString parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
-            mediaItem.likeState = BLCLikeStateNotLiked;
-            [self reloadMediaItem:mediaItem];
-        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-            mediaItem.likeState = BLCLikeStateNotLiked; // faking as though got a positive response back
-            mediaItem.likesCount -= 1; // faking as though got a positive response back
-
-//            mediaItem.likeState = BLCLikeStateLiked;
-            [self reloadMediaItem:mediaItem];
-        }];
-        
+        mediaItem.likeState = BLCLikeStateNotLiked; // faking as though got a positive response back
+        mediaItem.likesCount -= 1; // faking as though got a positive response back
+//
+//        
+//        
+//        
+//        [self.instagramOperationManager DELETE:urlString parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
+//            mediaItem.likeState = BLCLikeStateNotLiked;
+//            [self reloadMediaItem:mediaItem];
+//        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+//            
+////            mediaItem.likeState = BLCLikeStateLiked;
+//            [self reloadMediaItem:mediaItem];
+//        }];
+//        
     }
     
     [self reloadMediaItem:mediaItem]; // why are we calling this again - is this to cater for likeState = liking/unliking - if so why not just create an else statement and then put this in there - wouldn't that be more efficient?
+    
 }
 
 - (void) reloadMediaItem: (BLCMedia *)mediaItem {
+    
+    // save to disk on reload
+    NSUInteger numberOfItemsToSave = MIN(self.mediaItems.count, 50);
+    NSArray *mediaItemsToSave = [self.mediaItems subarrayWithRange:NSMakeRange(0, numberOfItemsToSave)];
+    
+    NSString *fullPath = [self pathForFilename:NSStringFromSelector(@selector(mediaItems))];
+    NSData *mediaItemData = [NSKeyedArchiver archivedDataWithRootObject:mediaItemsToSave];
+    
+    NSError *dataError;
+    BOOL wroteSuccessfully = [mediaItemData writeToFile:fullPath options:NSDataWritingAtomic | NSDataWritingFileProtectionCompleteUnlessOpen error:&dataError];
+    
+    if (!wroteSuccessfully) {
+        NSLog(@"Couldn't write file: %@", dataError);
+    }
+
+    
+    
+    
+    
+    
     NSMutableArray *mutableArrayWithKVO = [self mutableArrayValueForKey:@"mediaItems"];
     NSUInteger index = [mutableArrayWithKVO indexOfObject:mediaItem];
     [mutableArrayWithKVO replaceObjectAtIndex:index withObject:mediaItem];
