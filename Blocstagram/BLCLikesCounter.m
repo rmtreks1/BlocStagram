@@ -27,7 +27,8 @@
     if (self) {
         self.likesCountLabel = [[UILabel alloc] init];
         self.likesCountLabel.font = [UIFont fontWithName:@"HelveticaNeue-Thin" size:11];
-        self.likesCountLabel.text = @"12345678";
+        self.likesCountLabel.text = @"123";
+        self.likesCountLabel.textColor = [UIColor whiteColor];
         
         [self addSubview:self.likesCountLabel];
     }

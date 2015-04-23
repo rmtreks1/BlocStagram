@@ -12,7 +12,7 @@
 #import "BLCUser.h"
 #import "BLCDataSource.h"
 #import "BLCLikeButton.h"
-
+#import "BLCLikesCounter.h"
 
 @interface BLCMediaTableViewCell () <UIGestureRecognizerDelegate>
 
@@ -29,6 +29,8 @@
 @property (nonatomic, strong) UITapGestureRecognizer *twoFingerTapGestureRecognizer;
 
 @property (nonatomic, strong) BLCLikeButton *likeButton;
+@property (nonatomic, strong) BLCLikesCounter *likeCounter;
+
 
 
 @end
@@ -96,17 +98,22 @@ static NSParagraphStyle *paragraphStyle;
         self.likeButton = [[BLCLikeButton alloc]init];
         [self.likeButton addTarget:self action:@selector(likePressed:) forControlEvents:UIControlEventTouchUpInside];
         self.likeButton.backgroundColor = usernameLabelGray;
+        
+        self.likeCounter = [[BLCLikesCounter alloc] initWithLikesCount];
+        self.likeCounter.backgroundColor = [UIColor blueColor];
+        
+        
     
         
-        for (UIView *view in @[self.mediaImageView, self.usernameAndCaptionLabel, self.commentLabel, self.likeButton]) {
+        for (UIView *view in @[self.mediaImageView, self.usernameAndCaptionLabel, self.commentLabel, self.likeButton, self.likeCounter]) {
             [self.contentView addSubview:view];
             view.translatesAutoresizingMaskIntoConstraints = NO;
         }
      
-        NSDictionary *viewDictionary = NSDictionaryOfVariableBindings(_mediaImageView, _usernameAndCaptionLabel, _commentLabel, _likeButton); // why do we use _likeButton rather than likeButton
+        NSDictionary *viewDictionary = NSDictionaryOfVariableBindings(_mediaImageView, _usernameAndCaptionLabel, _commentLabel, _likeButton, _likeCounter); // why do we use _likeButton rather than likeButton
         
         [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[_mediaImageView]|" options:kNilOptions metrics:nil views:viewDictionary]];
-        [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[_usernameAndCaptionLabel][_likeButton(==38)]|" options:NSLayoutFormatAlignAllTop | NSLayoutFormatAlignAllBottom metrics:nil views:viewDictionary]];
+        [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[_usernameAndCaptionLabel][_likeCounter(==50)][_likeButton(==38)]|" options:NSLayoutFormatAlignAllTop | NSLayoutFormatAlignAllBottom metrics:nil views:viewDictionary]];
         [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[_commentLabel]|" options:kNilOptions metrics:nil views:viewDictionary]];
         
         [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|[_mediaImageView][_usernameAndCaptionLabel][_commentLabel]"
