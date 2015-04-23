@@ -11,6 +11,7 @@
 #import "BLCComment.h" // added this in otherwise error
 
 
+
 @implementation BLCMedia
 
 - (instancetype) initWithDictionary:(NSDictionary *)mediaDictionary {
@@ -49,6 +50,12 @@
         
         BOOL userHasLiked = [mediaDictionary[@"user_has_liked"] boolValue]; // when is this put into mediaDictionary?
         self.likeState = userHasLiked ? BLCLikeStateLiked : BLCLikeStateNotLiked;
+        
+        
+        NSDictionary *likesCounterDictionary = mediaDictionary[@"likes"];
+        if ([likesCounterDictionary isKindOfClass:[NSDictionary class]]) {
+            self.likesCounter = [[BLCLikesCounter alloc] initWithDictionary:likesCounterDictionary];
+        }
         
     }
     

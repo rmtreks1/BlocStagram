@@ -42,6 +42,15 @@
 }
 
 
+- (instancetype) initWithDictionary:(NSDictionary *)likesDictionary{
+    self = [super init];
+    if (self) {
+        self.likesCount = likesDictionary[@"count"];
+        NSLog(@"likes count is %@", self.likesCount);
+    }
+    return self;
+}
+
 
 
 

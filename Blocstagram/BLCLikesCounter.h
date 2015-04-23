@@ -12,9 +12,12 @@
 
 
 
-@property (nonatomic, assign) NSInteger likesCount;
+@property (nonatomic, assign) NSString *likesCount;
 
 
 - (instancetype) initWithLikesCount;
+- (instancetype) initWithDictionary:(NSDictionary *)likesDictionary;
+
+
 
 @end
