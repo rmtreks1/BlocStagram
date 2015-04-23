@@ -365,6 +365,7 @@
         } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
             mediaItem.likeState = BLCLikeStateNotLiked;
             [self reloadMediaItem:mediaItem];
+            NSLog(@"failed to POST like to instagram");
         }];
     } else if (mediaItem.likeState == BLCLikeStateLiked) {
         
