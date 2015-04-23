@@ -21,13 +21,16 @@
 
 @implementation BLCLikesCounter
 
-- (instancetype) initWithLikesCount: (NSString *)likesCount {
+- (instancetype) initWithLikesCount: (NSInteger)likesCount {
     self = [super init];
     
     if (self) {
+        
+        NSString *likesCountText = [NSString stringWithFormat:@"%ld", (long)likesCount];
+        
         self.likesCountLabel = [[UILabel alloc] init];
         self.likesCountLabel.font = [UIFont fontWithName:@"HelveticaNeue-Thin" size:11];
-        self.likesCountLabel.text = likesCount;
+        self.likesCountLabel.text = likesCountText;
         self.likesCountLabel.textAlignment = NSTextAlignmentRight;
 //        self.likesCountLabel.textColor = [UIColor whiteColor];
         self.likesCountLabel.frame = CGRectMake(0, 0, 44, 44);
@@ -45,8 +48,8 @@
 - (instancetype) initWithDictionary:(NSDictionary *)likesDictionary{
     self = [super init];
     if (self) {
-        self.likesCount = likesDictionary[@"count"];
-        NSLog(@"likes count is %@", self.likesCount);
+        self.likesCount = [likesDictionary[@"count"] integerValue];
+        NSLog(@"likes count is %ld", (long)self.likesCount);
     }
     return self;
 }

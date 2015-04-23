@@ -99,7 +99,7 @@ static NSParagraphStyle *paragraphStyle;
         [self.likeButton addTarget:self action:@selector(likePressed:) forControlEvents:UIControlEventTouchUpInside];
         self.likeButton.backgroundColor = usernameLabelGray;
         
-        self.likeCounter = [[BLCLikesCounter alloc] initWithLikesCount:@"test"];
+        self.likeCounter = [[BLCLikesCounter alloc] initWithLikesCount:self.mediaItem.likesCount];
         self.likeCounter.backgroundColor = usernameLabelGray;
         
         

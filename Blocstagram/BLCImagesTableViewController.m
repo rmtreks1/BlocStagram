@@ -252,7 +252,7 @@
     if (shareVC) {
         [self presentViewController:shareVC animated:YES completion:nil];
     }
-    NSLog(@"likes counter is: %@", cell.mediaItem.likesCounter.likesCount);
+    NSLog(@"likes counter is: %ld", (long)cell.mediaItem.likesCounter.likesCount);
 }
 
 
