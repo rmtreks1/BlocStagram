@@ -13,6 +13,7 @@
 		0192708F1AE5BA1100C58A30 /* BLCMediaFullScreenAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = 0192708E1AE5BA1100C58A30 /* BLCMediaFullScreenAnimator.m */; };
 		01DF2B701AE85C7C00AEF1C5 /* BLCCircleSpinnerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 01DF2B6F1AE85C7C00AEF1C5 /* BLCCircleSpinnerView.m */; };
 		01DF2B731AE8807700AEF1C5 /* BLCLikeButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 01DF2B721AE8807700AEF1C5 /* BLCLikeButton.m */; };
+		01DF2B791AE8C6CD00AEF1C5 /* BLCLikesCounter.m in Sources */ = {isa = PBXBuildFile; fileRef = 01DF2B781AE8C6CD00AEF1C5 /* BLCLikesCounter.m */; };
 		01E838151ADF502C001A14E5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 01E838141ADF502C001A14E5 /* main.m */; };
 		01E838181ADF502C001A14E5 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 01E838171ADF502C001A14E5 /* AppDelegate.m */; };
 		01E8381B1ADF502C001A14E5 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01E8381A1ADF502C001A14E5 /* ViewController.m */; };
@@ -61,6 +62,8 @@
 		01DF2B6F1AE85C7C00AEF1C5 /* BLCCircleSpinnerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLCCircleSpinnerView.m; sourceTree = "<group>"; };
 		01DF2B711AE8807700AEF1C5 /* BLCLikeButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLCLikeButton.h; sourceTree = "<group>"; };
 		01DF2B721AE8807700AEF1C5 /* BLCLikeButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLCLikeButton.m; sourceTree = "<group>"; };
+		01DF2B771AE8C6CD00AEF1C5 /* BLCLikesCounter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BLCLikesCounter.h; path = Blocstagram/BLCLikesCounter.h; sourceTree = "<group>"; };
+		01DF2B781AE8C6CD00AEF1C5 /* BLCLikesCounter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BLCLikesCounter.m; path = Blocstagram/BLCLikesCounter.m; sourceTree = "<group>"; };
 		01E8380F1ADF502C001A14E5 /* Blocstagram.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Blocstagram.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		01E838131ADF502C001A14E5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		01E838141ADF502C001A14E5 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -122,6 +125,8 @@
 		01E838061ADF502C001A14E5 = {
 			isa = PBXGroup;
 			children = (
+				01DF2B771AE8C6CD00AEF1C5 /* BLCLikesCounter.h */,
+				01DF2B781AE8C6CD00AEF1C5 /* BLCLikesCounter.m */,
 				01E838111ADF502C001A14E5 /* Blocstagram */,
 				01E8382B1ADF502C001A14E5 /* BlocstagramTests */,
 				01E838101ADF502C001A14E5 /* Products */,
@@ -387,6 +392,7 @@
 				01E838181ADF502C001A14E5 /* AppDelegate.m in Sources */,
 				01E8385F1ADFBE89001A14E5 /* BLCMediaTableViewCell.m in Sources */,
 				01E838561ADF73F1001A14E5 /* BLCMedia.m in Sources */,
+				01DF2B791AE8C6CD00AEF1C5 /* BLCLikesCounter.m in Sources */,
 				01E838151ADF502C001A14E5 /* main.m in Sources */,
 				0192708F1AE5BA1100C58A30 /* BLCMediaFullScreenAnimator.m in Sources */,
 				01E838501ADF5395001A14E5 /* BLCImagesTableViewController.m in Sources */,
