@@ -15,7 +15,7 @@
 @property (nonatomic, assign) NSString *likesCount;
 
 
-- (instancetype) initWithLikesCount;
+- (instancetype) initWithLikesCount: (NSString *)likesCount;
 - (instancetype) initWithDictionary:(NSDictionary *)likesDictionary;
 
 
