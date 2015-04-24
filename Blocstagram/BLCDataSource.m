@@ -358,39 +358,40 @@
     
     if (mediaItem.likeState == BLCLikeStateNotLiked) {
         mediaItem.likeState = BLCLikeStateLiking;
+       
         
-        mediaItem.likeState = BLCLikeStateLiked; // faking as though got a positive response back
-        mediaItem.likesCount += 1; // faking as though got a positive response back
+        [self.instagramOperationManager POST:urlString parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
+            mediaItem.likeState = BLCLikeStateLiked;
+            [self reloadMediaItem:mediaItem];
+        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+            
+            //            mediaItem.likeState = BLCLikeStateNotLiked;
 
-//
-//        
-//        [self.instagramOperationManager POST:urlString parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
-//            mediaItem.likeState = BLCLikeStateLiked;
-//            [self reloadMediaItem:mediaItem];
-//        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-//            
-//            //            mediaItem.likeState = BLCLikeStateNotLiked;
-//            [self reloadMediaItem:mediaItem];
-//            NSLog(@"failed to POST like to instagram");
-//        }];
+            
+            mediaItem.likeState = BLCLikeStateLiked; // faking as though got a positive response back
+            mediaItem.likesCount += 1; // faking as though got a positive response back
+            [self reloadMediaItem:mediaItem];
+            NSLog(@"failed to POST like to instagram");
+        }];
     } else if (mediaItem.likeState == BLCLikeStateLiked) {
         
         mediaItem.likeState = BLCLikeStateUnliking;
-        mediaItem.likeState = BLCLikeStateNotLiked; // faking as though got a positive response back
-        mediaItem.likesCount -= 1; // faking as though got a positive response back
-//
-//        
-//        
-//        
-//        [self.instagramOperationManager DELETE:urlString parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
-//            mediaItem.likeState = BLCLikeStateNotLiked;
-//            [self reloadMediaItem:mediaItem];
-//        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-//            
-////            mediaItem.likeState = BLCLikeStateLiked;
-//            [self reloadMediaItem:mediaItem];
-//        }];
-//        
+       
+
+        
+        
+        
+        [self.instagramOperationManager DELETE:urlString parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
+            mediaItem.likeState = BLCLikeStateNotLiked;
+            [self reloadMediaItem:mediaItem];
+        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+            
+//            mediaItem.likeState = BLCLikeStateLiked;
+            mediaItem.likeState = BLCLikeStateNotLiked; // faking as though got a positive response back
+            mediaItem.likesCount -= 1; // faking as though got a positive response back
+            [self reloadMediaItem:mediaItem];
+        }];
+        
     }
     
     [self reloadMediaItem:mediaItem]; // why are we calling this again - is this to cater for likeState = liking/unliking - if so why not just create an else statement and then put this in there - wouldn't that be more efficient?
