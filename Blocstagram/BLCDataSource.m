@@ -146,7 +146,7 @@
         NSMutableDictionary *parameters = [[NSMutableDictionary alloc] init];
         
         // DEBUG
-        NSLog(@"count of media items %lu", (unsigned long)self.mediaItems.count);
+//        NSLog(@"count of media items %lu", (unsigned long)self.mediaItems.count);
         
         if (self.mediaItems.count > 0) {
             NSString *minID = [[self.mediaItems firstObject] idNumber];
@@ -345,6 +345,83 @@
     NSString *documentsDirectory = [paths firstObject];
     NSString *dataPath = [documentsDirectory stringByAppendingPathComponent:filename];
     return dataPath;
+}
+
+
+
+
+#pragma mark - Liking Media Items
+
+- (void) toggleLikeOnMediaItem:(BLCMedia *)mediaItem{
+    NSString *urlString = [NSString stringWithFormat:@"media/%@/likes", mediaItem.idNumber];
+    NSDictionary *parameters = @{@"access_token": self.accessToken};
+    
+    if (mediaItem.likeState == BLCLikeStateNotLiked) {
+        mediaItem.likeState = BLCLikeStateLiking;
+       
+        
+        [self.instagramOperationManager POST:urlString parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
+            mediaItem.likeState = BLCLikeStateLiked;
+            [self reloadMediaItem:mediaItem];
+        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+            
+            //            mediaItem.likeState = BLCLikeStateNotLiked;
+
+            
+            mediaItem.likeState = BLCLikeStateLiked; // faking as though got a positive response back
+            mediaItem.likesCount += 1; // faking as though got a positive response back
+            [self reloadMediaItem:mediaItem];
+            NSLog(@"failed to POST like to instagram");
+        }];
+    } else if (mediaItem.likeState == BLCLikeStateLiked) {
+        
+        mediaItem.likeState = BLCLikeStateUnliking;
+       
+
+        
+        
+        
+        [self.instagramOperationManager DELETE:urlString parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
+            mediaItem.likeState = BLCLikeStateNotLiked;
+            [self reloadMediaItem:mediaItem];
+        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+            
+//            mediaItem.likeState = BLCLikeStateLiked;
+            mediaItem.likeState = BLCLikeStateNotLiked; // faking as though got a positive response back
+            mediaItem.likesCount -= 1; // faking as though got a positive response back
+            [self reloadMediaItem:mediaItem];
+        }];
+        
+    }
+    
+    [self reloadMediaItem:mediaItem]; // why are we calling this again - is this to cater for likeState = liking/unliking - if so why not just create an else statement and then put this in there - wouldn't that be more efficient?
+    
+}
+
+- (void) reloadMediaItem: (BLCMedia *)mediaItem {
+    
+    // save to disk on reload
+    NSUInteger numberOfItemsToSave = MIN(self.mediaItems.count, 50);
+    NSArray *mediaItemsToSave = [self.mediaItems subarrayWithRange:NSMakeRange(0, numberOfItemsToSave)];
+    
+    NSString *fullPath = [self pathForFilename:NSStringFromSelector(@selector(mediaItems))];
+    NSData *mediaItemData = [NSKeyedArchiver archivedDataWithRootObject:mediaItemsToSave];
+    
+    NSError *dataError;
+    BOOL wroteSuccessfully = [mediaItemData writeToFile:fullPath options:NSDataWritingAtomic | NSDataWritingFileProtectionCompleteUnlessOpen error:&dataError];
+    
+    if (!wroteSuccessfully) {
+        NSLog(@"Couldn't write file: %@", dataError);
+    }
+
+    
+    
+    
+    
+    
+    NSMutableArray *mutableArrayWithKVO = [self mutableArrayValueForKey:@"mediaItems"];
+    NSUInteger index = [mutableArrayWithKVO indexOfObject:mediaItem];
+    [mutableArrayWithKVO replaceObjectAtIndex:index withObject:mediaItem];
 }
 
 

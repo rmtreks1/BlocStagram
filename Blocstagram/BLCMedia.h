@@ -10,6 +10,9 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h> // Add this for UIImage
+#import "BLCLikeButton.h"
+#import "BLCLikesCounter.h"
+
 
 
 typedef NS_ENUM(NSInteger, BLCMediaDownloadState) {
@@ -36,6 +39,9 @@ typedef NS_ENUM(NSInteger, BLCMediaDownloadState) {
 @property (nonatomic, strong) NSString *caption;
 @property (nonatomic, strong) NSArray *comments;
 @property (nonatomic, assign) BLCMediaDownloadState downloadState;
+@property (nonatomic, assign) BLCLikeState likeState;
+//@property (nonatomic, strong) BLCLikesCounter *likesCounter;
+@property (nonatomic, assign) NSInteger likesCount;
 
 - (instancetype) initWithDictionary:(NSDictionary *)mediaDictionary;
 

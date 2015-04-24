@@ -11,6 +11,7 @@
 #import "BLCComment.h" // added this in otherwise error
 
 
+
 @implementation BLCMedia
 
 - (instancetype) initWithDictionary:(NSDictionary *)mediaDictionary {
@@ -47,6 +48,19 @@
         
         self.comments = commentsArray;
         
+        BOOL userHasLiked = [mediaDictionary[@"user_has_liked"] boolValue]; // when is this put into mediaDictionary?
+        self.likeState = userHasLiked ? BLCLikeStateLiked : BLCLikeStateNotLiked;
+        
+        
+        NSDictionary *likesCounterDictionary = mediaDictionary[@"likes"];
+        if ([likesCounterDictionary isKindOfClass:[NSDictionary class]]) {
+//            self.likesCounter = [[BLCLikesCounter alloc] initWithDictionary:likesCounterDictionary];
+            self.likesCount = [likesCounterDictionary[@"count"] integerValue];
+            NSLog(@"QQQQQQQQQ count is %ld", (long)self.likesCount);
+            
+        }
+        
+        
     }
     
     return self;
@@ -79,6 +93,8 @@
         
         self.caption = [aDecoder decodeObjectForKey:NSStringFromSelector(@selector(caption))];
         self.comments = [aDecoder decodeObjectForKey:NSStringFromSelector(@selector(comments))];
+        self.likeState = [aDecoder decodeIntegerForKey:NSStringFromSelector(@selector(likeState))];
+        self.likesCount = [aDecoder decodeIntegerForKey:NSStringFromSelector(@selector(likesCount))];
     }
     
     return self;
@@ -91,6 +107,9 @@
     [aCoder encodeObject:self.image forKey:NSStringFromSelector(@selector(image))];
     [aCoder encodeObject:self.caption forKey:NSStringFromSelector(@selector(caption))];
     [aCoder encodeObject:self.comments forKey:NSStringFromSelector(@selector(comments))];
+    [aCoder encodeInteger:self.likeState forKey:NSStringFromSelector(@selector(likeState))];
+    [aCoder encodeInteger:self.likesCount forKey:NSStringFromSelector(@selector(likesCount))];
+    
 }
 
 

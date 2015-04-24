@@ -123,11 +123,6 @@
      cell.mediaItem = [BLCDataSource sharedInstance].mediaItems[indexPath.row];
      
      
-     NSLog(@"draggin %d",self.tableView.dragging);
-     NSLog(@"decelerating %d", self.tableView.decelerating);
-
-     
-     
      if (cell.mediaItem.downloadState == BLCMediaDownloadStateNeedsImage && !self.tableView.decelerating && !self.tableView.dragging) {
          [[BLCDataSource sharedInstance] downloadImageForMediaItem:cell.mediaItem];
      }
@@ -252,9 +247,13 @@
     if (shareVC) {
         [self presentViewController:shareVC animated:YES completion:nil];
     }
+    NSLog(@"likes counter is: %ld", (long)cell.mediaItem.likesCount);
 }
 
 
+- (void) cellDidPressLikeButton:(BLCMediaTableViewCell *)cell {
+    [[BLCDataSource sharedInstance] toggleLikeOnMediaItem:cell.mediaItem];
+}
 
 
 
