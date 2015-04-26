@@ -10,6 +10,7 @@
 #import <AVFoundation/AVFoundation.h>
 #import "BLCCameraToolbar.h"
 #import "UIImage+BLCImageUtilities.h"
+#import "BLCCropBox.h"
 
 @interface BLCCameraViewController () <BLCCameraToolbarDelegate, UIAlertViewDelegate>
 
@@ -19,14 +20,18 @@
 @property (nonatomic, strong) AVCaptureVideoPreviewLayer *captureVideoPreviewLayer;
 @property (nonatomic, strong) AVCaptureStillImageOutput *stillImageOutput;
 
-@property (nonatomic, strong) NSArray *horizontalLines;
-@property (nonatomic, strong) NSArray *verticalLines;
 @property (nonatomic, strong) UIToolbar *topView;
 @property (nonatomic, strong) UIToolbar *bottomView;
 
 @property (nonatomic, strong) BLCCameraToolbar *cameraToolbar;
 
+@property (nonatomic, strong) BLCCropBox *cropBox;
+
 @end
+
+
+
+
 
 @implementation BLCCameraViewController
 #pragma mark - Build View Hierarchy
@@ -52,13 +57,12 @@
     self.bottomView.barTintColor = whiteBG;
     self.topView.alpha = 0.5;
     self.bottomView.alpha = 0.5;
+    self.cropBox = [BLCCropBox new];
 }
 
 
 - (void) addViewsToViewHierarchy {
-    NSMutableArray *views = [@[self.imagePreview, self.topView, self.bottomView] mutableCopy];
-    [views addObjectsFromArray:self.horizontalLines];
-    [views addObjectsFromArray:self.verticalLines];
+    NSMutableArray *views = [@[self.imagePreview, self.cropBox, self.topView, self.bottomView] mutableCopy];
     [views addObject:self.cameraToolbar];
     
     for (UIView *view in views) {
@@ -68,33 +72,6 @@
 
 
 
-- (NSArray *) horizontalLines {
-    if (!_horizontalLines) {
-        _horizontalLines = [self newArrayOfFourWhiteViews];
-    }
-    
-    return _horizontalLines;
-}
-
-- (NSArray *) verticalLines {
-    if (!_verticalLines) {
-        _verticalLines = [self newArrayOfFourWhiteViews];
-    }
-    
-    return _verticalLines;
-}
-
-- (NSArray *) newArrayOfFourWhiteViews {
-    NSMutableArray *array = [NSMutableArray array];
-    
-    for (int i = 0; i < 4; i++) {
-        UIView *view = [UIView new];
-        view.backgroundColor = [UIColor whiteColor];
-        [array addObject:view];
-    }
-    
-    return array;
-}
 
 
 
@@ -161,22 +138,7 @@
     CGFloat heightOfBottomView = CGRectGetHeight(self.view.frame) - yOriginOfBottomView;
     self.bottomView.frame = CGRectMake(0, yOriginOfBottomView, width, heightOfBottomView);
     
-    CGFloat thirdOfWidth = width / 3;
-    
-    for (int i = 0; i < 4; i++) {
-        UIView *horizontalLine = self.horizontalLines[i];
-        UIView *verticalLine = self.verticalLines[i];
-        
-        horizontalLine.frame = CGRectMake(0, (i * thirdOfWidth) + CGRectGetMaxY(self.topView.frame), width, 0.5);
-        
-        CGRect verticalFrame = CGRectMake(i * thirdOfWidth, CGRectGetMaxY(self.topView.frame), 0.5, width);
-        
-        if (i == 3) {
-            verticalFrame.origin.x -= 0.5;
-        }
-        
-        verticalLine.frame = verticalFrame;
-    }
+    self.cropBox.frame = CGRectMake(0, CGRectGetMaxY(self.topView.frame), width, width); // isn't this going to screw up on rotation because device width > device height
     
     self.imagePreview.frame = self.view.bounds;
     self.captureVideoPreviewLayer.frame = self.imagePreview.bounds;
@@ -248,15 +210,8 @@
             image = [image imageWithFixedOrientation];
             image = [image imageResizedToMatchAspectRatioOfSize:self.captureVideoPreviewLayer.bounds.size];
             
-            UIView *leftLine = self.verticalLines.firstObject;
-            UIView *rightLine = self.verticalLines.lastObject;
-            UIView *topLine = self.horizontalLines.firstObject;
-            UIView *bottomLine = self.horizontalLines.lastObject;
-            
-            CGRect gridRect = CGRectMake(CGRectGetMinX(leftLine.frame),
-                                         CGRectGetMinY(topLine.frame),
-                                         CGRectGetMaxX(rightLine.frame) - CGRectGetMinX(leftLine.frame),
-                                         CGRectGetMinY(bottomLine.frame) - CGRectGetMinY(topLine.frame));
+           
+            CGRect gridRect = self.cropBox.frame;            
             
             CGRect cropRect = gridRect;
             cropRect.origin.x = (CGRectGetMinX(gridRect) + (image.size.width - CGRectGetWidth(gridRect)) / 2);
