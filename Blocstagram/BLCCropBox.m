@@ -13,6 +13,9 @@
 @property (nonatomic, strong) NSArray *horizontalLines;
 @property (nonatomic, strong) NSArray *verticalLines;
 
+@property (nonatomic, strong) UIToolbar *topView;
+@property (nonatomic, strong) UIToolbar *bottomView;
+
 @end
 
 @implementation BLCCropBox
@@ -23,11 +26,25 @@
     if (self) {
         self.userInteractionEnabled = NO;
         
+        
         // Initialization code
         NSArray *lines = [self.horizontalLines arrayByAddingObjectsFromArray:self.verticalLines];
         for (UIView *lineView in lines) {
             [self addSubview:lineView];
         }
+        
+        // creating the topbar and bottom bar
+        self.topView = [UIToolbar new];
+        self.bottomView = [UIToolbar new];
+        UIColor *whiteBG = [UIColor colorWithWhite:1.0 alpha:.15];
+        self.topView.barTintColor = whiteBG;
+        self.bottomView.barTintColor = whiteBG;
+        self.topView.alpha = 0.5;
+        self.bottomView.alpha = 0.5;
+        
+        [self addSubview:self.topView];
+        [self addSubview:self.bottomView];
+
     }
     return self;
 }
