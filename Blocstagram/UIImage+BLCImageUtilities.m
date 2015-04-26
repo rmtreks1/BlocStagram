@@ -154,10 +154,18 @@
 
 
 - (UIImage *) imageByScalingToSize:(CGSize)size andCroppingWithRect:(CGRect)rect {
-    
-    
-    // placeholder image
     UIImage *image = [UIImage new];
+    [image imageWithFixedOrientation];
+    [image imageResizedToMatchAspectRatioOfSize:size];
+    [image imageCroppedToRect:rect];
+
+    
+//    [self imageWithFixedOrientation];
+//    [self imageResizedToMatchAspectRatioOfSize:size];
+//    [self imageCroppedToRect:rect];
+//    
+    
+    
     
     return image;
 }
