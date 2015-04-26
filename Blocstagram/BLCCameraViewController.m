@@ -11,8 +11,10 @@
 #import "BLCCameraToolbar.h"
 #import "UIImage+BLCImageUtilities.h"
 #import "BLCCropBox.h"
+#import "BLCImageLibraryViewController.h"
 
-@interface BLCCameraViewController () <BLCCameraToolbarDelegate, UIAlertViewDelegate>
+
+@interface BLCCameraViewController () <BLCCameraToolbarDelegate, UIAlertViewDelegate, BLCImageLibraryViewControllerDelegate>
 
 @property (nonatomic, strong) UIView *imagePreview;
 
@@ -234,7 +236,9 @@
 
 
 - (void) rightButtonPressedOnToolbar:(BLCCameraToolbar *)toolbar {
-    NSLog(@"Photo library button pressed.");
+    BLCImageLibraryViewController *imageLibraryVC = [[BLCImageLibraryViewController alloc] init];
+    imageLibraryVC.delegate = self;
+    [self.navigationController pushViewController:imageLibraryVC animated:YES];
 }
 
 
@@ -266,7 +270,11 @@
 
 
 
+#pragma mark - BLCImageLibraryViewControllerDelegate
 
+- (void) imageLibraryViewController:(BLCImageLibraryViewController *)imageLibraryViewController didCompleteWithImage:(UIImage *)image {
+    [self.delegate cameraViewController:self didCompleteWithImage:image];
+}
 
 
 
