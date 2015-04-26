@@ -397,6 +397,14 @@
 }
 
 
+//
+//// for testing - to try and replicate issue that the assignment talks about that keyboardWillHide doesn't work in landscape
+//- (void)keyboardWillHide:(NSNotification *)notification {
+//    NSLog(@"keyWillHide called");
+//}
+
+
+
 
 
 - (void)keyboardWillHide:(NSNotification *)notification
