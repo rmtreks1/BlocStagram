@@ -362,8 +362,18 @@
     CGFloat commentViewY = CGRectGetMinY(commentViewFrameInViewCoordinates);
     CGFloat difference = commentViewY - keyboardY;
     
-    if (difference > 0) {
+    CGFloat commentViewHeight = CGRectGetHeight(commentViewFrameInViewCoordinates);
+    
+    
+    if (difference < 0) {
+        heightToScroll += (difference + commentViewHeight);
+        NSLog(@"the difference is %f", difference);
+    }
+    
+    
+    if (difference >= 0) {
         heightToScroll += difference;
+        NSLog(@"the difference is %f", difference);
     }
     
     if (CGRectIntersectsRect(keyboardFrameInViewCoordinates, commentViewFrameInViewCoordinates)) {
@@ -372,7 +382,7 @@
         heightToScroll += CGRectGetHeight(intersectionRect);
     }
     
-    if (heightToScroll > 0) {
+    if (heightToScroll != 0) {
         contentInsets.bottom += heightToScroll;
         scrollIndicatorInsets.bottom += heightToScroll;
         contentOffset.y += heightToScroll;
@@ -391,8 +401,22 @@
         } completion:nil];
     }
     
+    
+//    //testing
+//    self.lastKeyboardAdjustment = 0;
+    
     self.lastKeyboardAdjustment = heightToScroll;
+    NSLog(@"keyboard will show called");
+    NSLog(@"height to scroll is %f", heightToScroll);
 }
+
+
+//
+//// for testing - to try and replicate issue that the assignment talks about that keyboardWillHide doesn't work in landscape
+//- (void)keyboardWillHide:(NSNotification *)notification {
+//    NSLog(@"keyWillHide called");
+//}
+
 
 
 
@@ -416,6 +440,8 @@
         self.tableView.contentInset = contentInsets;
         self.tableView.scrollIndicatorInsets = scrollIndicatorInsets;
     } completion:nil];
+    
+    NSLog(@"keyboard will hide called");
 }
 
 
