@@ -362,8 +362,18 @@
     CGFloat commentViewY = CGRectGetMinY(commentViewFrameInViewCoordinates);
     CGFloat difference = commentViewY - keyboardY;
     
-    if (difference != 0) {
+    CGFloat commentViewHeight = CGRectGetHeight(commentViewFrameInViewCoordinates);
+    
+    
+    if (difference < 0) {
+        heightToScroll += (difference + commentViewHeight);
+        NSLog(@"the difference is %f", difference);
+    }
+    
+    
+    if (difference >= 0) {
         heightToScroll += difference;
+        NSLog(@"the difference is %f", difference);
     }
     
     if (CGRectIntersectsRect(keyboardFrameInViewCoordinates, commentViewFrameInViewCoordinates)) {
@@ -390,6 +400,10 @@
             self.tableView.contentOffset = contentOffset;
         } completion:nil];
     }
+    
+    
+//    //testing
+//    self.lastKeyboardAdjustment = 0;
     
     self.lastKeyboardAdjustment = heightToScroll;
     NSLog(@"keyboard will show called");
