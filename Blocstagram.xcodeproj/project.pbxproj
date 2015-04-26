@@ -42,6 +42,7 @@
 		01E838591ADF74B8001A14E5 /* BLCComment.m in Sources */ = {isa = PBXBuildFile; fileRef = 01E838581ADF74B8001A14E5 /* BLCComment.m */; };
 		01E8385C1ADF7576001A14E5 /* BLCDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 01E8385B1ADF7576001A14E5 /* BLCDataSource.m */; };
 		01E8385F1ADFBE89001A14E5 /* BLCMediaTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 01E8385E1ADFBE89001A14E5 /* BLCMediaTableViewCell.m */; };
+		01FFF5F51AED9F0600AEB449 /* BLCImageLibraryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01FFF5F41AED9F0600AEB449 /* BLCImageLibraryViewController.m */; };
 		F99BD257403975CA550192FE /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 138CBAF58D5C847D45B46EAB /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -116,6 +117,8 @@
 		01E8385B1ADF7576001A14E5 /* BLCDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLCDataSource.m; sourceTree = "<group>"; };
 		01E8385D1ADFBE89001A14E5 /* BLCMediaTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLCMediaTableViewCell.h; sourceTree = "<group>"; };
 		01E8385E1ADFBE89001A14E5 /* BLCMediaTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLCMediaTableViewCell.m; sourceTree = "<group>"; };
+		01FFF5F31AED9F0600AEB449 /* BLCImageLibraryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BLCImageLibraryViewController.h; path = Blocstagram/BLCImageLibraryViewController.h; sourceTree = "<group>"; };
+		01FFF5F41AED9F0600AEB449 /* BLCImageLibraryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BLCImageLibraryViewController.m; path = Blocstagram/BLCImageLibraryViewController.m; sourceTree = "<group>"; };
 		138CBAF58D5C847D45B46EAB /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		5500101479BFF5E915268F5C /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		82CC5853475C9758D8E97C89 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
@@ -143,6 +146,8 @@
 		01E838061ADF502C001A14E5 = {
 			isa = PBXGroup;
 			children = (
+				01FFF5F31AED9F0600AEB449 /* BLCImageLibraryViewController.h */,
+				01FFF5F41AED9F0600AEB449 /* BLCImageLibraryViewController.m */,
 				01BF64151AED98B30072AA84 /* BLCCropImageViewController.h */,
 				01BF64161AED98B30072AA84 /* BLCCropImageViewController.m */,
 				01E838111ADF502C001A14E5 /* Blocstagram */,
@@ -423,6 +428,7 @@
 				01E838181ADF502C001A14E5 /* AppDelegate.m in Sources */,
 				01D9F7811AEC8CDC00DD821D /* BLCCameraToolbar.m in Sources */,
 				01E8385F1ADFBE89001A14E5 /* BLCMediaTableViewCell.m in Sources */,
+				01FFF5F51AED9F0600AEB449 /* BLCImageLibraryViewController.m in Sources */,
 				01E838561ADF73F1001A14E5 /* BLCMedia.m in Sources */,
 				01D9F7841AEC8E9600DD821D /* BLCCameraViewController.m in Sources */,
 				01DF2B791AE8C6CD00AEF1C5 /* BLCLikesCounter.m in Sources */,
