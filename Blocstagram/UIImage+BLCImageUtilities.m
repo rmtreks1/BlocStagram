@@ -153,5 +153,15 @@
 
 
 
+- (UIImage *) imageByScalingToSize:(CGSize)size andCroppingWithRect:(CGRect)rect {
+    
+    
+    // placeholder image
+    UIImage *image = [UIImage new];
+    
+    return image;
+}
+
+
 
 @end
