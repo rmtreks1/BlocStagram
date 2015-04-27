@@ -77,9 +77,15 @@
             timestampString = "451714541.330047"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
+<<<<<<< HEAD
             startingLineNumber = "193"
             endingLineNumber = "193"
             landmarkName = "-tableView:willDisplayCell:forRowAtIndexPath:"
+=======
+            startingLineNumber = "182"
+            endingLineNumber = "182"
+            landmarkName = "-tableView:cellForRowAtIndexPath:"
+>>>>>>> 403591002159588e8543efba6969fdd034d0fcad
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
