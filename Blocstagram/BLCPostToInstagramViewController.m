@@ -318,6 +318,48 @@
     
     
     
+    // Old Polaroid Filter
+    
+    [self.photoFilterOperationQueue addOperationWithBlock:^{
+        CIFilter *instantFilter = [CIFilter filterWithName:@"CIPhotoEffectInstant"];
+        
+        CIFilter *randomFilter = [CIFilter filterWithName:@"CIRandomGenerator"];
+        
+        CIImage *randomImage = [CIFilter filterWithName:@"CIRandomGenerator"].outputImage;
+        
+        CIFilter *whiteSpecks = [CIFilter filterWithName:@"CIColorMatrix" keysAndValues:kCIInputImageKey, randomImage,
+                                 @"inputRVector", [CIVector vectorWithX:0.0 Y:1.0 Z:0.0 W:0.0],
+                                 @"inputGVector", [CIVector vectorWithX:0.0 Y:1.0 Z:0.0 W:0.0],
+                                 @"inputBVector", [CIVector vectorWithX:0.0 Y:1.0 Z:0.0 W:0.0],
+                                 @"inputAVector", [CIVector vectorWithX:0.0 Y:0.01 Z:0.0 W:0.0],
+                                 @"inputBiasVector", [CIVector vectorWithX:0.0 Y:0.0 Z:0.0 W:0.0],
+                                 nil];
+        
+        
+        if (instantFilter && randomFilter && whiteSpecks) {
+            [instantFilter setValue:sourceCIImage forKey:kCIInputImageKey];
+            CIImage *instantFilterImage = instantFilter.outputImage;
+            
+            
+            CIImage *whiteSpecksImage = [whiteSpecks.outputImage imageByCroppingToRect:sourceCIImage.extent];
+            
+            
+            CIImage *instantFilterPlusWhiteSpecksImage = [CIFilter filterWithName:@"CISourceOverCompositing" keysAndValues:
+                                                  kCIInputImageKey, whiteSpecksImage,
+                                                  kCIInputBackgroundImageKey, instantFilterImage,
+                                                  nil].outputImage;
+            
+            
+            
+            
+            [self addCIImageToCollectionView:instantFilterPlusWhiteSpecksImage withFilterTitle:NSLocalizedString(@"Old Polaroid", @"Old Polaroid Filter")];
+        }
+        
+        
+    }];
+    
+    
+    
     
     
     // Drunk filter
