@@ -302,6 +302,22 @@
             [self addCIImageToCollectionView:moodyFilter.outputImage withFilterTitle:NSLocalizedString(@"Moody", @"Moody Filter")];
         }
     }];
+   
+    
+    
+    // Negative filter
+    
+    [self.photoFilterOperationQueue addOperationWithBlock:^{
+        CIFilter *negativeFilter = [CIFilter filterWithName:@"CIColorInvert"];
+        
+        if (negativeFilter) {
+            [negativeFilter setValue:sourceCIImage forKey:kCIInputImageKey];
+            [self addCIImageToCollectionView:negativeFilter.outputImage withFilterTitle:NSLocalizedString(@"Negative", @"Negative Filter")];
+        }
+    }];
+    
+    
+    
     
     
     // Drunk filter
