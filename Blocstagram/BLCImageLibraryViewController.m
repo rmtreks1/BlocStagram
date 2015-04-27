@@ -10,7 +10,7 @@
 #import <AssetsLibrary/AssetsLibrary.h>
 #import "BLCCropImageViewController.h"
 
-@interface BLCImageLibraryViewController () <BLCCropImageViewControllerDelegate>
+@interface BLCImageLibraryViewController () <BLCCropImageViewControllerDelegate, UICollectionViewDelegateFlowLayout>
 
 @property (nonatomic, strong) ALAssetsLibrary *library;
 
@@ -65,12 +65,17 @@ static NSString * const reuseIdentifier = @"Cell";
     [super viewWillLayoutSubviews];
     
     CGFloat width = CGRectGetWidth(self.view.frame);
-    CGFloat minWidth = 100;
-    NSInteger divisor = width / minWidth;
-    CGFloat cellSize = width / divisor;
+//    CGFloat minWidth = 100;
+//    NSInteger divisor = width / minWidth;
+//    CGFloat cellSize = width / divisor;
     
     UICollectionViewFlowLayout *flowLayout = (UICollectionViewFlowLayout *)self.collectionViewLayout;
-    flowLayout.itemSize = CGSizeMake(cellSize, cellSize);
+    
+    
+//    flowLayout.itemSize = CGSizeMake(cellSize, cellSize);
+    
+    
+    
     flowLayout.minimumInteritemSpacing = 0;
     flowLayout.minimumLineSpacing = 2;
     flowLayout.headerReferenceSize = CGSizeMake(width, 24);
@@ -255,6 +260,12 @@ static NSString * const reuseIdentifier = @"Cell";
 
 
 
+
+#pragma mark - <UICollectViewDelegateFlowLayout>
+
+- (CGSize) collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
+    return self.collectionView.frame.size;
+}
 
 
 
