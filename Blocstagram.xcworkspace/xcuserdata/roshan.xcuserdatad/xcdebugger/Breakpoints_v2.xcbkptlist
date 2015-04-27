@@ -74,6 +74,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Blocstagram/BLCImagesTableViewController.m"
+<<<<<<< HEAD
             timestampString = "451714541.330047"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
@@ -84,6 +85,13 @@
 =======
             startingLineNumber = "182"
             endingLineNumber = "182"
+=======
+            timestampString = "451784267.613516"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "183"
+            endingLineNumber = "183"
+>>>>>>> using-assets-library
             landmarkName = "-tableView:cellForRowAtIndexPath:"
 >>>>>>> 403591002159588e8543efba6969fdd034d0fcad
             landmarkType = "5">
@@ -175,6 +183,7 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
+<<<<<<< HEAD
             filePath = "Blocstagram/UIImage+BLCImageUtilities.m"
             timestampString = "451735765.845356"
             startingColumnNumber = "9223372036854775807"
@@ -278,6 +287,15 @@
             startingLineNumber = "266"
             endingLineNumber = "266"
             landmarkName = "-cameraButtonPressedOnToolbar:"
+=======
+            filePath = "Blocstagram/BLCCameraViewController.m"
+            timestampString = "451788374.193503"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "146"
+            endingLineNumber = "146"
+            landmarkName = "-viewWillLayoutSubviews"
+>>>>>>> using-assets-library
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

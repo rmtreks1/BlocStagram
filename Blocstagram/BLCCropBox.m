@@ -13,6 +13,11 @@
 @property (nonatomic, strong) NSArray *horizontalLines;
 @property (nonatomic, strong) NSArray *verticalLines;
 
+@property (nonatomic, strong) UIToolbar *topView;
+@property (nonatomic, strong) UIToolbar *bottomView;
+
+@property (nonatomic, strong) UIView *gridView;
+
 @end
 
 @implementation BLCCropBox
@@ -23,11 +28,31 @@
     if (self) {
         self.userInteractionEnabled = NO;
         
+        
+        // creating the topbar and bottom bar
+        self.topView = [UIToolbar new];
+        self.bottomView = [UIToolbar new];
+        UIColor *whiteBG = [UIColor colorWithWhite:1.0 alpha:.15];
+        self.topView.barTintColor = whiteBG;
+        self.bottomView.barTintColor = whiteBG;
+        self.topView.alpha = 0.5;
+        self.bottomView.alpha = 0.5;
+        
+        [self addSubview:self.topView];
+        [self addSubview:self.bottomView];
+
+        
+        // creating the gridView
+        self.gridView = [UIView new];
+        
         // Initialization code
         NSArray *lines = [self.horizontalLines arrayByAddingObjectsFromArray:self.verticalLines];
         for (UIView *lineView in lines) {
-            [self addSubview:lineView];
+            [self.gridView addSubview:lineView];
         }
+        
+        [self addSubview:self.gridView];
+        
     }
     return self;
 }
@@ -66,6 +91,18 @@
     CGFloat width = CGRectGetWidth(self.frame);
     CGFloat thirdOfWidth = width / 3;
     
+    
+    // laying out TopView
+    self.topView.frame = CGRectMake(0, 0, width, 44);
+    
+    // laying out BottomView
+    CGFloat yOriginOfBottomView = CGRectGetMaxY(self.topView.frame) + width;
+    CGFloat heightOfBottomView = CGRectGetHeight(self.frame) - yOriginOfBottomView;
+    self.bottomView.frame = CGRectMake(0, yOriginOfBottomView, width, heightOfBottomView);
+    
+    
+    
+    // laying out grid
     for (int i = 0; i < 4; i++) {
         UIView *horizontalLine = self.horizontalLines[i];
         UIView *verticalLine = self.verticalLines[i];
@@ -80,5 +117,13 @@
         
         verticalLine.frame = verticalFrame;
     }
+    
+   
+    
+    
+    // laying out GridView
+    self.gridView.frame = CGRectMake(0, CGRectGetMaxY(self.topView.frame), width, width);
+    
+    
 }
 @end

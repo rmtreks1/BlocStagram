@@ -134,13 +134,18 @@
     [super viewWillLayoutSubviews];
     
     CGFloat width = CGRectGetWidth(self.view.bounds);
-    self.topView.frame = CGRectMake(0, self.topLayoutGuide.length, width, 44);
     
-    CGFloat yOriginOfBottomView = CGRectGetMaxY(self.topView.frame) + width;
-    CGFloat heightOfBottomView = CGRectGetHeight(self.view.frame) - yOriginOfBottomView;
-    self.bottomView.frame = CGRectMake(0, yOriginOfBottomView, width, heightOfBottomView);
+    // now being done in BLCCropBox.m
+//    self.topView.frame = CGRectMake(0, self.topLayoutGuide.length, width, 44);
+//    
+//    CGFloat yOriginOfBottomView = CGRectGetMaxY(self.topView.frame) + width;
+//    CGFloat heightOfBottomView = CGRectGetHeight(self.view.frame) - yOriginOfBottomView;
+//    self.bottomView.frame = CGRectMake(0, yOriginOfBottomView, width, heightOfBottomView);
     
-    self.cropBox.frame = CGRectMake(0, CGRectGetMaxY(self.topView.frame), width, width); // isn't this going to screw up on rotation because device width > device height
+    
+    CGFloat heightOfCropBox = CGRectGetHeight(self.view.frame) - self.topLayoutGuide.length;
+    
+    self.cropBox.frame = CGRectMake(0, self.topLayoutGuide.length, width, heightOfCropBox); // isn't this going to screw up on rotation because device width > device height
     
     self.imagePreview.frame = self.view.bounds;
     self.captureVideoPreviewLayer.frame = self.imagePreview.bounds;
