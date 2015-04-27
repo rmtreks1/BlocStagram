@@ -60,15 +60,22 @@
 - (void) viewWillLayoutSubviews {
     [super viewWillLayoutSubviews];
     
-    CGRect cropRect = CGRectZero;
+//    CGRect cropRect = CGRectZero;
+//    
+//    CGFloat edgeSize = MIN(CGRectGetWidth(self.view.frame), CGRectGetHeight(self.view.frame));
+//    cropRect.size = CGSizeMake(edgeSize, edgeSize);
+//    
+//    CGSize size = self.view.frame.size;
+//    
+//    self.cropBox.frame = cropRect;
+
+    CGFloat width = CGRectGetWidth(self.view.bounds);
+    CGFloat heightOfCropBox = CGRectGetHeight(self.view.frame) - self.topLayoutGuide.length;
+    self.cropBox.frame = CGRectMake(0, self.topLayoutGuide.length, width, heightOfCropBox);
     
-    CGFloat edgeSize = MIN(CGRectGetWidth(self.view.frame), CGRectGetHeight(self.view.frame));
-    cropRect.size = CGSizeMake(edgeSize, edgeSize);
     
-    CGSize size = self.view.frame.size;
     
-    self.cropBox.frame = cropRect;
-    self.cropBox.center = CGPointMake(size.width / 2, size.height / 2);
+//    self.cropBox.center = CGPointMake(size.width / 2, size.height / 2);
     self.scrollView.frame = self.cropBox.frame;
     self.scrollView.clipsToBounds = NO;
     
