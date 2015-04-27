@@ -42,14 +42,16 @@
         [self addSubview:self.bottomView];
 
         
-        
+        // creating the gridView
+        self.gridView = [UIView new];
         
         // Initialization code
         NSArray *lines = [self.horizontalLines arrayByAddingObjectsFromArray:self.verticalLines];
         for (UIView *lineView in lines) {
-            [self addSubview:lineView];
+            [self.gridView addSubview:lineView];
         }
         
+        [self addSubview:self.gridView];
         
     }
     return self;
@@ -89,6 +91,17 @@
     CGFloat width = CGRectGetWidth(self.frame);
     CGFloat thirdOfWidth = width / 3;
     
+    
+    // laying out TopView
+    self.topView.frame = CGRectMake(0, 0, width, 44);
+    
+    // laying out BottomView
+    CGFloat yOriginOfBottomView = CGRectGetMaxY(self.topView.frame) + width;
+    CGFloat heightOfBottomView = CGRectGetHeight(self.frame) - yOriginOfBottomView;
+    self.bottomView.frame = CGRectMake(0, yOriginOfBottomView, width, heightOfBottomView);
+    
+    
+    
     // laying out grid
     for (int i = 0; i < 4; i++) {
         UIView *horizontalLine = self.horizontalLines[i];
@@ -105,19 +118,11 @@
         verticalLine.frame = verticalFrame;
     }
     
-    // getting height for each of the views
-    CGFloat barViewHeight = (CGRectGetHeight(self.frame) - width)/2 ;
+   
     
     
-    
-    // laying out TopView
-    self.topView.frame = CGRectMake(0, 0, width, barViewHeight);
-    
-    // laying out BottomView
-    CGFloat yOriginOfBottomView = CGRectGetMaxY(self.topView.frame) + width;
-    CGFloat heightOfBottomView = CGRectGetHeight(self.frame) - yOriginOfBottomView;
-    self.bottomView.frame = CGRectMake(0, yOriginOfBottomView, width, heightOfBottomView);
-    
+    // laying out GridView
+    self.gridView.frame = CGRectMake(0, CGRectGetMaxY(self.topView.frame), width, width);
     
     
 }
