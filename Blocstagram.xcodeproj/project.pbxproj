@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		012A2B591AE634D10095EF31 /* ShareUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = 012A2B581AE634D10095EF31 /* ShareUtility.m */; };
 		012A90271AE36954007DEFBC /* BLCLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 012A90261AE36954007DEFBC /* BLCLoginViewController.m */; };
+		0185756A1AEF1BDE00BE90B6 /* BLCCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 018575691AEF1BDE00BE90B6 /* BLCCollectionViewCell.m */; };
 		0192708C1AE5AED600C58A30 /* BLCMediaFullScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0192708B1AE5AED600C58A30 /* BLCMediaFullScreenViewController.m */; };
 		0192708F1AE5BA1100C58A30 /* BLCMediaFullScreenAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = 0192708E1AE5BA1100C58A30 /* BLCMediaFullScreenAnimator.m */; };
 		01A7CFE91AEE0FC6007A40CE /* BLCPostToInstagramViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01A7CFE81AEE0FC6007A40CE /* BLCPostToInstagramViewController.m */; };
@@ -62,6 +63,8 @@
 		012A2B581AE634D10095EF31 /* ShareUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShareUtility.m; sourceTree = "<group>"; };
 		012A90251AE36954007DEFBC /* BLCLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLCLoginViewController.h; sourceTree = "<group>"; };
 		012A90261AE36954007DEFBC /* BLCLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLCLoginViewController.m; sourceTree = "<group>"; };
+		018575681AEF1BDE00BE90B6 /* BLCCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BLCCollectionViewCell.h; path = Blocstagram/BLCCollectionViewCell.h; sourceTree = "<group>"; };
+		018575691AEF1BDE00BE90B6 /* BLCCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BLCCollectionViewCell.m; path = Blocstagram/BLCCollectionViewCell.m; sourceTree = "<group>"; };
 		0192708A1AE5AED600C58A30 /* BLCMediaFullScreenViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLCMediaFullScreenViewController.h; sourceTree = "<group>"; };
 		0192708B1AE5AED600C58A30 /* BLCMediaFullScreenViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLCMediaFullScreenViewController.m; sourceTree = "<group>"; };
 		0192708D1AE5BA1100C58A30 /* BLCMediaFullScreenAnimator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLCMediaFullScreenAnimator.h; sourceTree = "<group>"; };
@@ -149,6 +152,8 @@
 		01E838061ADF502C001A14E5 = {
 			isa = PBXGroup;
 			children = (
+				018575681AEF1BDE00BE90B6 /* BLCCollectionViewCell.h */,
+				018575691AEF1BDE00BE90B6 /* BLCCollectionViewCell.m */,
 				01A7CFE71AEE0FC6007A40CE /* BLCPostToInstagramViewController.h */,
 				01A7CFE81AEE0FC6007A40CE /* BLCPostToInstagramViewController.m */,
 				01E838111ADF502C001A14E5 /* Blocstagram */,
@@ -434,6 +439,7 @@
 				01A7CFE91AEE0FC6007A40CE /* BLCPostToInstagramViewController.m in Sources */,
 				01D9F7811AEC8CDC00DD821D /* BLCCameraToolbar.m in Sources */,
 				01E8385F1ADFBE89001A14E5 /* BLCMediaTableViewCell.m in Sources */,
+				0185756A1AEF1BDE00BE90B6 /* BLCCollectionViewCell.m in Sources */,
 				01FFF5F51AED9F0600AEB449 /* BLCImageLibraryViewController.m in Sources */,
 				01E838561ADF73F1001A14E5 /* BLCMedia.m in Sources */,
 				01D9F7841AEC8E9600DD821D /* BLCCameraViewController.m in Sources */,
