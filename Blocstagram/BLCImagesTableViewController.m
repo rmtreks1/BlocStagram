@@ -324,7 +324,20 @@
 
     UIViewController *shareVC = [ShareUtility shareMediaVC:cell.mediaItem];
     if (shareVC) {
-        [self presentViewController:shareVC animated:YES completion:nil];
+        if (isPhone) {
+            [self presentViewController:shareVC animated:YES completion:nil];
+        } else {
+            NSLog(@"not an iPhone");
+            UIPopoverController *activityVC = [[UIPopoverController alloc]initWithContentViewController:shareVC];
+            activityVC.popoverContentSize = CGSizeMake(500, 500);
+            
+            [activityVC presentPopoverFromRect:CGRectMake(cell.frame.origin.x, cell.frame.origin.y, self.tableView.frame.size.width, self.tableView.frame.size.height) inView:self.tableView permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
+            
+            
+            
+
+        }
+        
     }
     NSLog(@"likes counter is: %ld", (long)cell.mediaItem.likesCount);
 }
