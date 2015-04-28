@@ -12,7 +12,7 @@
 
 #define isPhone ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone)
 
-@interface BLCMediaFullScreenViewController () <UIScrollViewDelegate>
+@interface BLCMediaFullScreenViewController () <UIScrollViewDelegate, UIGestureRecognizerDelegate>
 
 
 @property (nonatomic, strong) UITapGestureRecognizer *tap;
@@ -76,6 +76,7 @@
         NSLog(@"ViewDidLoad: is not an iPhone");
         self.tapBehind = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapBehindFired:)];
         self.tapBehind.cancelsTouchesInView = NO;
+        self.tapBehind.delegate = self;
     }
     
     
@@ -234,6 +235,12 @@
     }
     
     NSLog(@"tapBehindFired");
+}
+
+
+-(BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer*)otherGestureRecognizer
+{
+    return YES;
 }
 
 
