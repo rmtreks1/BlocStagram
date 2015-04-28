@@ -32,7 +32,8 @@
 }
 
 
--(BLCCollectionViewCell *) collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath thumbnailEdgeSize:(CGFloat)thumbnailEdgeSize thumbnailImage:(UIImage *)thumbnail labelText:(NSString *)label {
+-(BLCCollectionViewCell *) collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath thumbnailEdgeSize:(CGFloat)thumbnailEdgeSize labelText:(NSString *)label thumbnailImage:(UIImage *)thumbnail
+ {
     
     BLCCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"cell" forIndexPath:indexPath];
     
@@ -52,7 +53,6 @@
         cell.thumbnail.contentMode = UIViewContentModeScaleAspectFill;
         cell.thumbnail.tag = imageViewTag;
         cell.thumbnail.clipsToBounds = YES;
-        cell.thumbnail.image = thumbnail;
         
 //        cell.thumbnail.backgroundColor = [UIColor blueColor]; //
         
@@ -64,15 +64,29 @@
         cell.label.tag = labelTag;
         cell.label.textAlignment = NSTextAlignmentCenter;
         cell.label.font = [UIFont fontWithName:@"HelveticaNeue-Medium" size:10];
-        cell.label.text = label;
         [cell.contentView addSubview:cell.label];
     }
 
     
+     cell.label.text = label;
+     cell.thumbnail.image = thumbnail;
+     
+     
     
-    
-    
-    
+//    // testing that inputs received
+//    NSLog(@"label received into collection view cell is %@", label);
+//    NSLog(@"label in collection view cell is %@", cell.label.text);
+//     if (thumbnail) {
+//         NSLog(@"thumbnail received");
+//     }
+//     
+//     if (cell.thumbnail.image) {
+//         NSLog(@"thumbnail in cell");
+//     }
+
+     
+     
+     
     
     return cell;
     

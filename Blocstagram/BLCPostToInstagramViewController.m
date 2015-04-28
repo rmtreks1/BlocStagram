@@ -179,51 +179,23 @@
 
 
 - (UICollectionViewCell*) collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-//    BLCCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"cell" forIndexPath:indexPath];
-//    
-//    static NSInteger imageViewTag = 1000;
-//    static NSInteger labelTag = 1001;
-//    
-//    UIImageView *thumbnail = (UIImageView *)[cell.contentView viewWithTag:imageViewTag];
-//    UILabel *label = (UILabel *)[cell.contentView viewWithTag:labelTag];
-//    
+
     UICollectionViewFlowLayout *flowLayout = (UICollectionViewFlowLayout *)self.filterCollectionView.collectionViewLayout;
     CGFloat thumbnailEdgeSize = flowLayout.itemSize.width;
-//
-//    if (!thumbnail) {
-//        thumbnail = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, thumbnailEdgeSize, thumbnailEdgeSize)];
-//        thumbnail.contentMode = UIViewContentModeScaleAspectFill;
-//        thumbnail.tag = imageViewTag;
-//        thumbnail.clipsToBounds = YES;
-//        
-//        [cell.contentView addSubview:thumbnail];
-//    }
-//    
-//    if (!label) {
-//        label = [[UILabel alloc] initWithFrame:CGRectMake(0, thumbnailEdgeSize, thumbnailEdgeSize, 20)];
-//        label.tag = labelTag;
-//        label.textAlignment = NSTextAlignmentCenter;
-//        label.font = [UIFont fontWithName:@"HelveticaNeue-Medium" size:10];
-//        [cell.contentView addSubview:label];
-//    }
-    
 
     UIImage *thumbnail = self.filterImages[indexPath.row];
     NSString *label = self.filterTitles[indexPath.row];
-
-    
     
     BLCCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"cell" forIndexPath:indexPath];
     
-//    [cell collectionView:collectionView cellForItemAtIndexPath:indexPath thumbnailEdgeSize:thumbnailEdgeSize];
-    
-    [cell collectionView:collectionView cellForItemAtIndexPath:indexPath thumbnailEdgeSize:thumbnailEdgeSize thumbnailImage:thumbnail labelText:label];
+    [cell collectionView:collectionView cellForItemAtIndexPath:indexPath thumbnailEdgeSize:thumbnailEdgeSize labelText:label thumbnailImage:thumbnail];
     
     
     
     
 //    cell.thumbnail.image = self.filterImages[indexPath.row];
 //    cell.label.text = self.filterTitles[indexPath.row];
+    NSLog(@"label of cell is %@", cell.label.text);
     
     return cell;
 }
