@@ -14,4 +14,15 @@
 
 @interface BLCCollectionViewCell : UICollectionViewCell
 
+
+@property (nonatomic, strong) UIImageView *thumbnail;
+@property (nonatomic, strong) UILabel *label;
+
+
+
+
+-(BLCCollectionViewCell *) collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath thumbnailEdgeSize:(CGFloat)thumbnailEdgeSize thumbnailImage:(UIImage *)thumbnail labelText:(NSString *)label;
+
+
+
 @end
