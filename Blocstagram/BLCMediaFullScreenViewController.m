@@ -228,7 +228,9 @@
             // The tap was outside the VC's view
             NSLog(@"tapBehind3");
             if (self.presentingViewController) {
-                [self dismissViewControllerAnimated:YES completion:nil];
+                if (isPhone == YES) {
+                    [self dismissViewControllerAnimated:YES completion:nil];
+                }
                 NSLog(@"tapBehind4");
             }
         }
