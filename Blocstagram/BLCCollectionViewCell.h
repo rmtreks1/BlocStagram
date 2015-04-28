@@ -21,7 +21,7 @@
 
 
 
--(BLCCollectionViewCell *) collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath thumbnailEdgeSize:(CGFloat)thumbnailEdgeSize labelText:(NSString *)label thumbnailImage:(UIImage *)thumbnail;
+-(void) setThumbnailEdgeSize:(CGFloat)thumbnailEdgeSize labelText:(NSString *)label thumbnailImage:(UIImage *)thumbnail;
 
 
 

@@ -187,10 +187,10 @@
     NSString *label = self.filterTitles[indexPath.row];
     
     BLCCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"cell" forIndexPath:indexPath];
-    
-    [cell collectionView:collectionView cellForItemAtIndexPath:indexPath thumbnailEdgeSize:thumbnailEdgeSize labelText:label thumbnailImage:thumbnail];
-    
-    
+//
+//    [cell collectionView:collectionView cellForItemAtIndexPath:indexPath thumbnailEdgeSize:thumbnailEdgeSize labelText:label thumbnailImage:thumbnail];
+
+    [cell setThumbnailEdgeSize:thumbnailEdgeSize labelText:label thumbnailImage:thumbnail];
     
     
 //    cell.thumbnail.image = self.filterImages[indexPath.row];
