@@ -7,6 +7,7 @@
 //
 
 #import "BLCPostToInstagramViewController.h"
+#import "BLCCollectionViewCell.h"
 
 @interface BLCPostToInstagramViewController () <UICollectionViewDataSource, UICollectionViewDelegate, UIAlertViewDelegate, UIDocumentInteractionControllerDelegate>
 
@@ -84,7 +85,8 @@
         self.navigationItem.rightBarButtonItem = self.sendBarButton;
     }
     
-    [self.filterCollectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:@"cell"];
+
+    [self.filterCollectionView registerClass:[BLCCollectionViewCell class] forCellWithReuseIdentifier:@"cell"];
     
     self.view.backgroundColor = [UIColor whiteColor];
     self.filterCollectionView.backgroundColor = [UIColor whiteColor];
@@ -177,36 +179,23 @@
 
 
 - (UICollectionViewCell*) collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"cell" forIndexPath:indexPath];
-    
-    static NSInteger imageViewTag = 1000;
-    static NSInteger labelTag = 1001;
-    
-    UIImageView *thumbnail = (UIImageView *)[cell.contentView viewWithTag:imageViewTag];
-    UILabel *label = (UILabel *)[cell.contentView viewWithTag:labelTag];
-    
+
     UICollectionViewFlowLayout *flowLayout = (UICollectionViewFlowLayout *)self.filterCollectionView.collectionViewLayout;
     CGFloat thumbnailEdgeSize = flowLayout.itemSize.width;
+
+    UIImage *thumbnail = self.filterImages[indexPath.row];
+    NSString *label = self.filterTitles[indexPath.row];
     
-    if (!thumbnail) {
-        thumbnail = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, thumbnailEdgeSize, thumbnailEdgeSize)];
-        thumbnail.contentMode = UIViewContentModeScaleAspectFill;
-        thumbnail.tag = imageViewTag;
-        thumbnail.clipsToBounds = YES;
-        
-        [cell.contentView addSubview:thumbnail];
-    }
+    BLCCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"cell" forIndexPath:indexPath];
+//
+//    [cell collectionView:collectionView cellForItemAtIndexPath:indexPath thumbnailEdgeSize:thumbnailEdgeSize labelText:label thumbnailImage:thumbnail];
+
+    [cell setThumbnailEdgeSize:thumbnailEdgeSize labelText:label thumbnailImage:thumbnail];
     
-    if (!label) {
-        label = [[UILabel alloc] initWithFrame:CGRectMake(0, thumbnailEdgeSize, thumbnailEdgeSize, 20)];
-        label.tag = labelTag;
-        label.textAlignment = NSTextAlignmentCenter;
-        label.font = [UIFont fontWithName:@"HelveticaNeue-Medium" size:10];
-        [cell.contentView addSubview:label];
-    }
     
-    thumbnail.image = self.filterImages[indexPath.row];
-    label.text = self.filterTitles[indexPath.row];
+//    cell.thumbnail.image = self.filterImages[indexPath.row];
+//    cell.label.text = self.filterTitles[indexPath.row];
+    NSLog(@"label of cell is %@", cell.label.text);
     
     return cell;
 }
@@ -302,6 +291,64 @@
             [self addCIImageToCollectionView:moodyFilter.outputImage withFilterTitle:NSLocalizedString(@"Moody", @"Moody Filter")];
         }
     }];
+   
+    
+    
+    // Negative filter
+    
+    [self.photoFilterOperationQueue addOperationWithBlock:^{
+        CIFilter *negativeFilter = [CIFilter filterWithName:@"CIColorInvert"];
+        
+        if (negativeFilter) {
+            [negativeFilter setValue:sourceCIImage forKey:kCIInputImageKey];
+            [self addCIImageToCollectionView:negativeFilter.outputImage withFilterTitle:NSLocalizedString(@"Negative", @"Negative Filter")];
+        }
+    }];
+    
+    
+    
+    // Old Polaroid Filter
+    
+    [self.photoFilterOperationQueue addOperationWithBlock:^{
+        CIFilter *instantFilter = [CIFilter filterWithName:@"CIPhotoEffectInstant"];
+        
+        CIFilter *randomFilter = [CIFilter filterWithName:@"CIRandomGenerator"]; // why is this line needed?
+        
+        CIImage *randomImage = [CIFilter filterWithName:@"CIRandomGenerator"].outputImage;
+        
+        CIFilter *whiteSpecks = [CIFilter filterWithName:@"CIColorMatrix" keysAndValues:kCIInputImageKey, randomImage,
+                                 @"inputRVector", [CIVector vectorWithX:0.0 Y:1.0 Z:0.0 W:0.0],
+                                 @"inputGVector", [CIVector vectorWithX:0.0 Y:1.0 Z:0.0 W:0.0],
+                                 @"inputBVector", [CIVector vectorWithX:0.0 Y:1.0 Z:0.0 W:0.0],
+                                 @"inputAVector", [CIVector vectorWithX:0.0 Y:0.01 Z:0.0 W:0.0],
+                                 @"inputBiasVector", [CIVector vectorWithX:0.0 Y:0.0 Z:0.0 W:0.0],
+                                 nil];
+        
+        
+        if (instantFilter && randomFilter && whiteSpecks) {
+            [instantFilter setValue:sourceCIImage forKey:kCIInputImageKey];
+            CIImage *instantFilterImage = instantFilter.outputImage;
+            
+            
+            CIImage *whiteSpecksImage = [whiteSpecks.outputImage imageByCroppingToRect:sourceCIImage.extent];
+            
+            
+            CIImage *instantFilterPlusWhiteSpecksImage = [CIFilter filterWithName:@"CISourceOverCompositing" keysAndValues:
+                                                  kCIInputImageKey, whiteSpecksImage,
+                                                  kCIInputBackgroundImageKey, instantFilterImage,
+                                                  nil].outputImage;
+            
+            
+            
+            
+            [self addCIImageToCollectionView:instantFilterPlusWhiteSpecksImage withFilterTitle:NSLocalizedString(@"Old Polaroid", @"Old Polaroid Filter")];
+        }
+        
+        
+    }];
+    
+    
+    
     
     
     // Drunk filter
