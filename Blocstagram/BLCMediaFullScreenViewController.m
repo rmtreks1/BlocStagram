@@ -10,6 +10,8 @@
 #import "BLCMedia.h"
 #import "ShareUtility.h"
 
+#define isPhone ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone)
+
 @interface BLCMediaFullScreenViewController () <UIScrollViewDelegate>
 
 
@@ -17,6 +19,7 @@
 @property (nonatomic, strong) UITapGestureRecognizer *doubleTap;
 @property (nonatomic, strong) UIButton *shareButton;
 @property (nonatomic, strong) UILabel *placeholder;
+@property (nonatomic, strong) UITapGestureRecognizer *tapBehind;
 
 
 @end
@@ -68,8 +71,18 @@
     
     [self.tap requireGestureRecognizerToFail:self.doubleTap];
     
+    
+    if (isPhone == NO) {
+        NSLog(@"ViewDidLoad: is not an iPhone");
+        self.tapBehind = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapBehindFired:)];
+        self.tapBehind.cancelsTouchesInView = NO;
+    }
+    
+    
+    
     [self.scrollView addGestureRecognizer:self.tap];
     [self.scrollView addGestureRecognizer:self.doubleTap];
+    
     
     
     // add share button
@@ -115,7 +128,24 @@
     [super viewWillAppear:animated];
     
     [self centerScrollView];
+    
+    
+    if (isPhone == NO) {
+        [[[[UIApplication sharedApplication] delegate] window] addGestureRecognizer:self.tapBehind];
+    }
 }
+
+
+
+- (void) viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    
+    if (isPhone == NO) {
+        [[[[UIApplication sharedApplication] delegate] window] removeGestureRecognizer:self.tapBehind];
+    }
+}
+
+
 
 
 - (void)centerScrollView {
@@ -182,6 +212,28 @@
     } else {
         [self.scrollView setZoomScale:self.scrollView.minimumZoomScale animated:YES];
     }
+}
+
+
+
+- (void) tapBehindFired:(UITapGestureRecognizer *)sender {
+    NSLog(@"tapBehind1");
+    if (sender.state == UIGestureRecognizerStateEnded) {
+        NSLog(@"tapBehind2");
+        CGPoint location = [sender locationInView:nil]; // Passing nil gives us coordinates in the window
+        CGPoint locationInVC = [self.presentedViewController.view convertPoint:location fromView:self.view.window];
+        
+        if ([self.presentedViewController.view pointInside:locationInVC withEvent:nil] == NO) {
+            // The tap was outside the VC's view
+            NSLog(@"tapBehind3");
+            if (self.presentingViewController) {
+                [self dismissViewControllerAnimated:YES completion:nil];
+                NSLog(@"tapBehind4");
+            }
+        }
+    }
+    
+    NSLog(@"tapBehindFired");
 }
 
 
