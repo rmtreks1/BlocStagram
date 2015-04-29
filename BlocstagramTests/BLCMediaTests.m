@@ -74,6 +74,9 @@
                                               @"id": @"4",
                                               @"profile_picture": @"..."
                                               }]},
+                                      @"caption": @{
+                                              @"text": @"amazing caption for this picture",
+                                              },
                                       };
     
     
@@ -120,28 +123,22 @@
     XCTAssertEqualObjects(testMediaCommentText, correctMediaCommentText, @"comments should be equal");
     
     
-    // test Caption when no caption provided
-    if (!self.mediaDictionary[@"caption"]) {
-        NSLog(@"no caption provided");
-        // should not return a caption
-        XCTAssertEqualObjects(testMedia.caption, @"", @"caption should be nil when no caption provided");
-        
-    } else if (self.mediaDictionary[@"caption"]) {
-        NSString *caption = self.mediaDictionary[@"caption"][@"text"];
-        XCTAssertEqualObjects(testMedia.caption, caption, @"caption should match what was provided");
-    }
+    // test Caption
+    NSString *caption = self.mediaDictionary[@"caption"][@"text"];
+    XCTAssertEqualObjects(testMedia.caption, caption, @"caption should match what was provided");
     
+    // test DownloadState
+    XCTAssertEqual(testMedia.downloadState, BLCMediaDownloadStateNeedsImage, @"download state should be needs image if URL provided");
+    
+    // test MediaURL
+    NSString *correctMediaURLasText = self.mediaDictionary[@"images"][@"standard_resolution"][@"url"];
+    NSURL *correctMediaURL = [NSURL URLWithString:correctMediaURLasText];
+    XCTAssertEqualObjects(testMedia.mediaURL, correctMediaURL, @"media URLs should match");
     
     
 };
 
 
-- (void) testInitializerWithCaptionProvided {
-
-    NSDictionary *captionDictionary = {@"caption" : @{@"text": "wow some caption provided"}};
-    self.mediaDictionary[@"caption"] = [@{@"text": @"wow some caption provided"}];
-    [self.mediaDictionary addEntriesFromDictionary:caption]
-}
 
 
 
