@@ -30,6 +30,7 @@
 @property (nonatomic, weak) UIView *lastSelectedCommentView;
 @property (nonatomic, assign) CGFloat lastKeyboardAdjustment;
 @property (nonatomic, strong) UIPopoverController *cameraPopover;
+@property (nonatomic, strong) UIPopoverController *activityPopOver;
 
 
 
@@ -329,9 +330,8 @@
         } else {
             NSLog(@"not an iPhone");
 
-            
-            UIPopoverController *activityVC = [[UIPopoverController alloc]initWithContentViewController:shareVC];
-            [activityVC presentPopoverFromRect:CGRectMake(CGRectGetMidX(cell.frame), cell.frame.origin.y, cell.imageView.frame.size.width, 320) inView:self.tableView permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
+            self.activityPopOver = [[UIPopoverController alloc]initWithContentViewController:shareVC];
+            [self.activityPopOver presentPopoverFromRect:CGRectMake(CGRectGetMidX(cell.frame), cell.frame.origin.y, cell.imageView.frame.size.width, 320) inView:self.tableView permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
             
 //            NSLog(@"y coordinate of image is %f", cell.frame.origin.y);
 //            NSLog(@"image view height is %f", cell.mediaItem.image.size.height); // this isn't the right height because of the height constraints
@@ -566,6 +566,13 @@
     }
 }
 
+
+- (void) viewWillTransitionToSize:(CGSize)size withTransitionCoordinator:(id<UIViewControllerTransitionCoordinator>)coordinator {
+    if (!isPhone) {
+        [self.activityPopOver dismissPopoverAnimated:NO];
+        self.activityPopOver = nil;
+    }
+}
 
 
 @end
