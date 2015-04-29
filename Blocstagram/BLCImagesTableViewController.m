@@ -568,11 +568,13 @@
 
 
 - (void) viewWillTransitionToSize:(CGSize)size withTransitionCoordinator:(id<UIViewControllerTransitionCoordinator>)coordinator {
-    if (!isPhone) {
+    if (!isPhone) {        
         [self.activityPopOver dismissPopoverAnimated:NO];
         self.activityPopOver = nil;
     }
 }
+
+
 
 
 @end
