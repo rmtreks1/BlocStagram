@@ -328,11 +328,13 @@
             [self presentViewController:shareVC animated:YES completion:nil];
         } else {
             NSLog(@"not an iPhone");
+
+            
             UIPopoverController *activityVC = [[UIPopoverController alloc]initWithContentViewController:shareVC];
-            activityVC.popoverContentSize = CGSizeMake(500, 500);
+            [activityVC presentPopoverFromRect:CGRectMake(CGRectGetMidX(cell.frame), cell.frame.origin.y, cell.imageView.frame.size.width, 320) inView:self.tableView permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
             
-            [activityVC presentPopoverFromRect:CGRectMake(cell.frame.origin.x, cell.frame.origin.y, self.tableView.frame.size.width, self.tableView.frame.size.height) inView:self.tableView permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
-            
+//            NSLog(@"y coordinate of image is %f", cell.frame.origin.y);
+//            NSLog(@"image view height is %f", cell.mediaItem.image.size.height); // this isn't the right height because of the height constraints
             
             
 
