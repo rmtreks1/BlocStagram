@@ -18,6 +18,7 @@
 		01A7CFE91AEE0FC6007A40CE /* BLCPostToInstagramViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01A7CFE81AEE0FC6007A40CE /* BLCPostToInstagramViewController.m */; };
 		01BF64141AED94F90072AA84 /* BLCCropBox.m in Sources */ = {isa = PBXBuildFile; fileRef = 01BF64131AED94F90072AA84 /* BLCCropBox.m */; };
 		01BF64171AED98B30072AA84 /* BLCCropImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01BF64161AED98B30072AA84 /* BLCCropImageViewController.m */; };
+		01C26A401AF0D2840038FABF /* BLCMediaTableViewCellTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 01C26A3F1AF0D2840038FABF /* BLCMediaTableViewCellTests.m */; };
 		01D9F77E1AEC50D700DD821D /* BLCComposeCommentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 01D9F77D1AEC50D700DD821D /* BLCComposeCommentView.m */; };
 		01D9F7811AEC8CDC00DD821D /* BLCCameraToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = 01D9F7801AEC8CDC00DD821D /* BLCCameraToolbar.m */; };
 		01D9F7841AEC8E9600DD821D /* BLCCameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01D9F7831AEC8E9600DD821D /* BLCCameraViewController.m */; };
@@ -82,6 +83,7 @@
 		01BF64131AED94F90072AA84 /* BLCCropBox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLCCropBox.m; sourceTree = "<group>"; };
 		01BF64151AED98B30072AA84 /* BLCCropImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLCCropImageViewController.h; sourceTree = "<group>"; };
 		01BF64161AED98B30072AA84 /* BLCCropImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLCCropImageViewController.m; sourceTree = "<group>"; };
+		01C26A3F1AF0D2840038FABF /* BLCMediaTableViewCellTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLCMediaTableViewCellTests.m; sourceTree = "<group>"; };
 		01D9F77C1AEC50D700DD821D /* BLCComposeCommentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLCComposeCommentView.h; sourceTree = "<group>"; };
 		01D9F77D1AEC50D700DD821D /* BLCComposeCommentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLCComposeCommentView.m; sourceTree = "<group>"; };
 		01D9F77F1AEC8CDC00DD821D /* BLCCameraToolbar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLCCameraToolbar.h; sourceTree = "<group>"; };
@@ -254,6 +256,7 @@
 				014C8FF01AF073E70096544A /* BLCCommentTests.m */,
 				014C8FF21AF076260096544A /* BLCMediaTests.m */,
 				01F683111AF0A753007E8DBC /* BLCComposeCommentViewTests.m */,
+				01C26A3F1AF0D2840038FABF /* BLCMediaTableViewCellTests.m */,
 			);
 			path = BlocstagramTests;
 			sourceTree = "<group>";
@@ -478,6 +481,7 @@
 			files = (
 				014C8FEF1AF072D30096544A /* BLCUserTests.m in Sources */,
 				01E8382F1ADF502C001A14E5 /* BlocstagramTests.m in Sources */,
+				01C26A401AF0D2840038FABF /* BLCMediaTableViewCellTests.m in Sources */,
 				01F683121AF0A753007E8DBC /* BLCComposeCommentViewTests.m in Sources */,
 				014C8FF31AF076260096544A /* BLCMediaTests.m in Sources */,
 				014C8FF11AF073E70096544A /* BLCCommentTests.m in Sources */,
