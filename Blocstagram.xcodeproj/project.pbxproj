@@ -13,6 +13,7 @@
 		0192708C1AE5AED600C58A30 /* BLCMediaFullScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0192708B1AE5AED600C58A30 /* BLCMediaFullScreenViewController.m */; };
 		0192708F1AE5BA1100C58A30 /* BLCMediaFullScreenAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = 0192708E1AE5BA1100C58A30 /* BLCMediaFullScreenAnimator.m */; };
 		01A7CFE91AEE0FC6007A40CE /* BLCPostToInstagramViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01A7CFE81AEE0FC6007A40CE /* BLCPostToInstagramViewController.m */; };
+		01AB900E1AF1BDE2009AE80E /* bloc_panel.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 01AB900D1AF1BDE2009AE80E /* bloc_panel.JPG */; };
 		01BF64141AED94F90072AA84 /* BLCCropBox.m in Sources */ = {isa = PBXBuildFile; fileRef = 01BF64131AED94F90072AA84 /* BLCCropBox.m */; };
 		01BF64171AED98B30072AA84 /* BLCCropImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01BF64161AED98B30072AA84 /* BLCCropImageViewController.m */; };
 		01D9F77E1AEC50D700DD821D /* BLCComposeCommentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 01D9F77D1AEC50D700DD821D /* BLCComposeCommentView.m */; };
@@ -71,6 +72,7 @@
 		0192708E1AE5BA1100C58A30 /* BLCMediaFullScreenAnimator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLCMediaFullScreenAnimator.m; sourceTree = "<group>"; };
 		01A7CFE71AEE0FC6007A40CE /* BLCPostToInstagramViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BLCPostToInstagramViewController.h; path = Blocstagram/BLCPostToInstagramViewController.h; sourceTree = "<group>"; };
 		01A7CFE81AEE0FC6007A40CE /* BLCPostToInstagramViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BLCPostToInstagramViewController.m; path = Blocstagram/BLCPostToInstagramViewController.m; sourceTree = "<group>"; };
+		01AB900D1AF1BDE2009AE80E /* bloc_panel.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = bloc_panel.JPG; sourceTree = "<group>"; };
 		01BF64121AED94F90072AA84 /* BLCCropBox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLCCropBox.h; sourceTree = "<group>"; };
 		01BF64131AED94F90072AA84 /* BLCCropBox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLCCropBox.m; sourceTree = "<group>"; };
 		01BF64151AED98B30072AA84 /* BLCCropImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLCCropImageViewController.h; sourceTree = "<group>"; };
@@ -267,6 +269,7 @@
 				01E838411ADF533A001A14E5 /* 8.JPG */,
 				01E838421ADF533A001A14E5 /* 9.JPG */,
 				01E838431ADF533A001A14E5 /* 10.JPG */,
+				01AB900D1AF1BDE2009AE80E /* bloc_panel.JPG */,
 			);
 			name = Images;
 			sourceTree = "<group>";
@@ -381,6 +384,7 @@
 				01E838451ADF533A001A14E5 /* 2.JPG in Resources */,
 				01E838461ADF533A001A14E5 /* 3.JPG in Resources */,
 				01E8384B1ADF533A001A14E5 /* 8.JPG in Resources */,
+				01AB900E1AF1BDE2009AE80E /* bloc_panel.JPG in Resources */,
 				01E838201ADF502C001A14E5 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
