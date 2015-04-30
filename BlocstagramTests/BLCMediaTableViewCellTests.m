@@ -129,6 +129,58 @@
 
 
 
+- (void)testHeightForMediaItemFullImageWidthDifferentiPhones {
+    
+    
+    self.testMedia.image = [UIImage imageNamed:@"1.JPG"];
+    
+    CGFloat imageHeight = self.testMedia.image.size.height;
+    CGFloat imageWidth = self.testMedia.image.size.width;
+    
+    
+    
+    // iPhone 4S & iPhone 5/5S
+    CGFloat screenWidth = 320;
+    CGFloat scaledImageHeight = imageHeight * screenWidth / imageWidth;
+    CGFloat testResultHeight = [BLCMediaTableViewCell heightForMediaItem:self.testMedia width:screenWidth];
+    
+    NSLog(@"image height is: %f , testResultHeight is %f", scaledImageHeight, testResultHeight);
+    
+    XCTAssertGreaterThan(testResultHeight, scaledImageHeight, @"cell height %f should be taller than image %f", testResultHeight, scaledImageHeight);
+    
+    
+    
+    // iPhone 6
+    screenWidth = 375;
+    
+    NSLog(@"image height is: %f , testResultHeight is %f", scaledImageHeight, testResultHeight);
+    
+    XCTAssertGreaterThan(testResultHeight, scaledImageHeight, @"cell height %f should be taller than image %f", testResultHeight, scaledImageHeight);
+    
+
+    
+    
+    // iPhone 6+
+    screenWidth = 414;
+    
+    NSLog(@"image height is: %f , testResultHeight is %f", scaledImageHeight, testResultHeight);
+    
+    XCTAssertGreaterThan(testResultHeight, scaledImageHeight, @"cell height %f should be taller than image %f", testResultHeight, scaledImageHeight);
+    
+
+    
+    
+    
+    
+    
+    
+}
+
+
+
+
+
+
 
 
 @end
