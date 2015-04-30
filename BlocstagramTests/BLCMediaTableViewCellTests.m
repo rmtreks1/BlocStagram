@@ -110,6 +110,23 @@
 
 
 
+- (void)testHeightForMediaItemFullImageWidthPortraitImage {
+    
+    
+    self.testMedia.image = [UIImage imageNamed:@"8.JPG"];
+    
+    CGFloat imageHeight = self.testMedia.image.size.height;
+    CGFloat imageWidth = self.testMedia.image.size.width;
+    
+    
+    CGFloat testResultHeight = [BLCMediaTableViewCell heightForMediaItem:self.testMedia width:imageWidth];
+    
+    NSLog(@"image height is: %f , testResultHeight is %f", imageHeight, testResultHeight);
+    
+    XCTAssertGreaterThan(testResultHeight, imageHeight, @"cell height %f should be taller than image %f", testResultHeight, imageHeight);
+    
+}
+
 
 
 
