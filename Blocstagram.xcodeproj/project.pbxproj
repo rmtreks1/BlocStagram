@@ -13,6 +13,7 @@
 		0192708C1AE5AED600C58A30 /* BLCMediaFullScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0192708B1AE5AED600C58A30 /* BLCMediaFullScreenViewController.m */; };
 		0192708F1AE5BA1100C58A30 /* BLCMediaFullScreenAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = 0192708E1AE5BA1100C58A30 /* BLCMediaFullScreenAnimator.m */; };
 		01A7CFE91AEE0FC6007A40CE /* BLCPostToInstagramViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01A7CFE81AEE0FC6007A40CE /* BLCPostToInstagramViewController.m */; };
+		01AB900E1AF1BDE2009AE80E /* bloc_panel.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 01AB900D1AF1BDE2009AE80E /* bloc_panel.JPG */; };
 		01BF64141AED94F90072AA84 /* BLCCropBox.m in Sources */ = {isa = PBXBuildFile; fileRef = 01BF64131AED94F90072AA84 /* BLCCropBox.m */; };
 		01BF64171AED98B30072AA84 /* BLCCropImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01BF64161AED98B30072AA84 /* BLCCropImageViewController.m */; };
 		01D9F77E1AEC50D700DD821D /* BLCComposeCommentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 01D9F77D1AEC50D700DD821D /* BLCComposeCommentView.m */; };
@@ -28,16 +29,6 @@
 		01E838201ADF502C001A14E5 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 01E8381F1ADF502C001A14E5 /* Images.xcassets */; };
 		01E838231ADF502C001A14E5 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 01E838211ADF502C001A14E5 /* LaunchScreen.xib */; };
 		01E8382F1ADF502C001A14E5 /* BlocstagramTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 01E8382E1ADF502C001A14E5 /* BlocstagramTests.m */; };
-		01E838441ADF533A001A14E5 /* 1.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 01E8383A1ADF533A001A14E5 /* 1.JPG */; };
-		01E838451ADF533A001A14E5 /* 2.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 01E8383B1ADF533A001A14E5 /* 2.JPG */; };
-		01E838461ADF533A001A14E5 /* 3.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 01E8383C1ADF533A001A14E5 /* 3.JPG */; };
-		01E838471ADF533A001A14E5 /* 4.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 01E8383D1ADF533A001A14E5 /* 4.JPG */; };
-		01E838481ADF533A001A14E5 /* 5.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 01E8383E1ADF533A001A14E5 /* 5.JPG */; };
-		01E838491ADF533A001A14E5 /* 6.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 01E8383F1ADF533A001A14E5 /* 6.JPG */; };
-		01E8384A1ADF533A001A14E5 /* 7.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 01E838401ADF533A001A14E5 /* 7.JPG */; };
-		01E8384B1ADF533A001A14E5 /* 8.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 01E838411ADF533A001A14E5 /* 8.JPG */; };
-		01E8384C1ADF533A001A14E5 /* 9.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 01E838421ADF533A001A14E5 /* 9.JPG */; };
-		01E8384D1ADF533A001A14E5 /* 10.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 01E838431ADF533A001A14E5 /* 10.JPG */; };
 		01E838501ADF5395001A14E5 /* BLCImagesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 01E8384F1ADF5395001A14E5 /* BLCImagesTableViewController.m */; };
 		01E838531ADF7324001A14E5 /* BLCUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 01E838521ADF7324001A14E5 /* BLCUser.m */; };
 		01E838561ADF73F1001A14E5 /* BLCMedia.m in Sources */ = {isa = PBXBuildFile; fileRef = 01E838551ADF73F1001A14E5 /* BLCMedia.m */; };
@@ -71,6 +62,7 @@
 		0192708E1AE5BA1100C58A30 /* BLCMediaFullScreenAnimator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLCMediaFullScreenAnimator.m; sourceTree = "<group>"; };
 		01A7CFE71AEE0FC6007A40CE /* BLCPostToInstagramViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BLCPostToInstagramViewController.h; path = Blocstagram/BLCPostToInstagramViewController.h; sourceTree = "<group>"; };
 		01A7CFE81AEE0FC6007A40CE /* BLCPostToInstagramViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BLCPostToInstagramViewController.m; path = Blocstagram/BLCPostToInstagramViewController.m; sourceTree = "<group>"; };
+		01AB900D1AF1BDE2009AE80E /* bloc_panel.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = bloc_panel.JPG; sourceTree = "<group>"; };
 		01BF64121AED94F90072AA84 /* BLCCropBox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLCCropBox.h; sourceTree = "<group>"; };
 		01BF64131AED94F90072AA84 /* BLCCropBox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLCCropBox.m; sourceTree = "<group>"; };
 		01BF64151AED98B30072AA84 /* BLCCropImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLCCropImageViewController.h; sourceTree = "<group>"; };
@@ -101,16 +93,6 @@
 		01E838281ADF502C001A14E5 /* BlocstagramTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BlocstagramTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		01E8382D1ADF502C001A14E5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		01E8382E1ADF502C001A14E5 /* BlocstagramTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BlocstagramTests.m; sourceTree = "<group>"; };
-		01E8383A1ADF533A001A14E5 /* 1.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 1.JPG; sourceTree = "<group>"; };
-		01E8383B1ADF533A001A14E5 /* 2.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 2.JPG; sourceTree = "<group>"; };
-		01E8383C1ADF533A001A14E5 /* 3.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 3.JPG; sourceTree = "<group>"; };
-		01E8383D1ADF533A001A14E5 /* 4.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 4.JPG; sourceTree = "<group>"; };
-		01E8383E1ADF533A001A14E5 /* 5.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 5.JPG; sourceTree = "<group>"; };
-		01E8383F1ADF533A001A14E5 /* 6.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 6.JPG; sourceTree = "<group>"; };
-		01E838401ADF533A001A14E5 /* 7.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 7.JPG; sourceTree = "<group>"; };
-		01E838411ADF533A001A14E5 /* 8.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 8.JPG; sourceTree = "<group>"; };
-		01E838421ADF533A001A14E5 /* 9.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 9.JPG; sourceTree = "<group>"; };
-		01E838431ADF533A001A14E5 /* 10.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 10.JPG; sourceTree = "<group>"; };
 		01E8384E1ADF5395001A14E5 /* BLCImagesTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLCImagesTableViewController.h; sourceTree = "<group>"; };
 		01E8384F1ADF5395001A14E5 /* BLCImagesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLCImagesTableViewController.m; sourceTree = "<group>"; };
 		01E838511ADF7324001A14E5 /* BLCUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLCUser.h; sourceTree = "<group>"; };
@@ -257,16 +239,7 @@
 		01E838381ADF511B001A14E5 /* Images */ = {
 			isa = PBXGroup;
 			children = (
-				01E8383A1ADF533A001A14E5 /* 1.JPG */,
-				01E8383B1ADF533A001A14E5 /* 2.JPG */,
-				01E8383C1ADF533A001A14E5 /* 3.JPG */,
-				01E8383D1ADF533A001A14E5 /* 4.JPG */,
-				01E8383E1ADF533A001A14E5 /* 5.JPG */,
-				01E8383F1ADF533A001A14E5 /* 6.JPG */,
-				01E838401ADF533A001A14E5 /* 7.JPG */,
-				01E838411ADF533A001A14E5 /* 8.JPG */,
-				01E838421ADF533A001A14E5 /* 9.JPG */,
-				01E838431ADF533A001A14E5 /* 10.JPG */,
+				01AB900D1AF1BDE2009AE80E /* bloc_panel.JPG */,
 			);
 			name = Images;
 			sourceTree = "<group>";
@@ -370,17 +343,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				01E8384C1ADF533A001A14E5 /* 9.JPG in Resources */,
-				01E838481ADF533A001A14E5 /* 5.JPG in Resources */,
-				01E838471ADF533A001A14E5 /* 4.JPG in Resources */,
-				01E838491ADF533A001A14E5 /* 6.JPG in Resources */,
-				01E8384A1ADF533A001A14E5 /* 7.JPG in Resources */,
-				01E838441ADF533A001A14E5 /* 1.JPG in Resources */,
-				01E8384D1ADF533A001A14E5 /* 10.JPG in Resources */,
 				01E838231ADF502C001A14E5 /* LaunchScreen.xib in Resources */,
-				01E838451ADF533A001A14E5 /* 2.JPG in Resources */,
-				01E838461ADF533A001A14E5 /* 3.JPG in Resources */,
-				01E8384B1ADF533A001A14E5 /* 8.JPG in Resources */,
+				01AB900E1AF1BDE2009AE80E /* bloc_panel.JPG in Resources */,
 				01E838201ADF502C001A14E5 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
