@@ -54,6 +54,7 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
+<<<<<<< HEAD
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
@@ -64,6 +65,31 @@
             startingLineNumber = "103"
             endingLineNumber = "103"
             landmarkName = "-cropPressed:"
+=======
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "BlocstagramTests/BLCMediaTableViewCellTests.m"
+            timestampString = "452045416.067237"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "226"
+            endingLineNumber = "226">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Blocstagram/BLCMediaTableViewCell.m"
+            timestampString = "451991086.772397"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "260"
+            endingLineNumber = "260"
+            landmarkName = "+heightForMediaItem:width:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -73,6 +99,114 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
+            filePath = "Blocstagram/BLCMediaTableViewCell.m"
+            timestampString = "451991105.070559"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "274"
+            endingLineNumber = "274"
+            landmarkName = "+heightForMediaItem:width:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.ExceptionBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            scope = "0"
+            stopOnStyle = "0">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Blocstagram/BLCMediaTableViewCell.m"
+            timestampString = "452040797.003187"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "246"
+            endingLineNumber = "246"
+            landmarkName = "-setMediaItem:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Blocstagram/BLCMediaTableViewCell.m"
+            timestampString = "452040800.715641"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "247"
+            endingLineNumber = "247"
+            landmarkName = "-setMediaItem:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Blocstagram/BLCMediaTableViewCell.m"
+            timestampString = "452040801.346513"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "248"
+            endingLineNumber = "248"
+            landmarkName = "-setMediaItem:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Blocstagram/BLCMediaTableViewCell.m"
+            timestampString = "452040801.987"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "249"
+            endingLineNumber = "249"
+            landmarkName = "-setMediaItem:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Blocstagram/BLCMediaTableViewCell.m"
+            timestampString = "452040802.560089"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "250"
+            endingLineNumber = "250"
+            landmarkName = "-setMediaItem:"
+>>>>>>> unit-tests
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+<<<<<<< HEAD
             filePath = "Blocstagram/BLCMediaFullScreenViewController.m"
             timestampString = "451915685.063407"
             startingColumnNumber = "9223372036854775807"
@@ -80,6 +214,15 @@
             startingLineNumber = "227"
             endingLineNumber = "227"
             landmarkName = "-tapBehindFired:"
+=======
+            filePath = "Blocstagram/BLCMediaTableViewCell.m"
+            timestampString = "452040806.577955"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "251"
+            endingLineNumber = "251"
+            landmarkName = "-setMediaItem:"
+>>>>>>> unit-tests
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -89,6 +232,7 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
+<<<<<<< HEAD
             filePath = "Blocstagram/BLCMediaFullScreenViewController.m"
             timestampString = "451915685.063407"
             startingColumnNumber = "9223372036854775807"
@@ -96,6 +240,15 @@
             startingLineNumber = "230"
             endingLineNumber = "230"
             landmarkName = "-tapBehindFired:"
+=======
+            filePath = "BlocstagramTests/BLCMediaTableViewCellTests.m"
+            timestampString = "452044671.17437"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "75"
+            endingLineNumber = "75"
+            landmarkName = "-testHeightForMediaItemFullImageWidth"
+>>>>>>> unit-tests
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -105,6 +258,7 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
+<<<<<<< HEAD
             filePath = "Blocstagram/BLCMediaFullScreenViewController.m"
             timestampString = "451915685.063407"
             startingColumnNumber = "9223372036854775807"
@@ -112,6 +266,15 @@
             startingLineNumber = "231"
             endingLineNumber = "231"
             landmarkName = "-tapBehindFired:"
+=======
+            filePath = "BlocstagramTests/BLCMediaTableViewCellTests.m"
+            timestampString = "452044886.714364"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "113"
+            endingLineNumber = "113"
+            landmarkName = "-testHeightForMediaItemFullImageWidthPortraitImage"
+>>>>>>> unit-tests
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
